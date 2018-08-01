@@ -11,6 +11,8 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+# Change
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('lys1bqOGjTb02EHLeUGXCIQvbnYZpszt523Hpr31Phf7LybqeGEBgfET+mAGGtz97RuEatdMILjc+89BTzanGqKDBfhcPLl2kcwpBZMAUyGyIslfnfoYx0rXbq6bEvM/KsaZX+nfJfpgxr0wk0juXwdB04t89/1O/w1cDnyilFU=')
