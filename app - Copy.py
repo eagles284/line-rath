@@ -8,10 +8,11 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
-from utility import (
-    handler, app, line_bot_api
+from features import (
+    handler, app, line_bot_api,
 )
-import chatfeatures
+
+import features
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -33,14 +34,15 @@ def callback():
     return 'OK'
 
 # FEATURES
-aifeatures = [chatfeatures.chatbot]
+aifeatures = [features.chatbot]
 
 # ON MESSAGE RECEIVED: GROUP OR PERSONAL
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-
-    for feature in aifeatures:
-        feature(event)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text)
+    )
 
 
 
