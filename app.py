@@ -33,7 +33,10 @@ def callback():
     return 'OK'
 
 # FEATURES
-aifeatures = [chatfeatures.chatbot]
+aifeatures = [
+    chatfeatures.chatbot,
+    chatfeatures.customresponse
+]
 
 # ON MESSAGE RECEIVED: GROUP OR PERSONAL
 @handler.add(MessageEvent, message=TextMessage)
