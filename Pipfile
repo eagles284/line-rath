@@ -7,6 +7,8 @@ name = "pypi"
 flask = "*"
 line-bot-sdk = "*"
 python-decouple = "*"
+pylint = "*"
+"flake8" = "*"
 
 [dev-packages]
 
