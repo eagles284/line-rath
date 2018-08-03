@@ -34,8 +34,8 @@ def callback():
 
 # FEATURES
 aifeatures = [
-    chatfeatures.chatbot,
-    chatfeatures.customresponse
+    chatfeatures.customresponse,
+    chatfeatures.chatbot
 ]
 
 # ON MESSAGE RECEIVED: GROUP OR PERSONAL
