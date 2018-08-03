@@ -14,6 +14,7 @@ def customresponse(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Apa lo manggil nama gue?"))
+    return
 
 def chatbot(event):
     line_bot_api.reply_message(
