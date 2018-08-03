@@ -1,3 +1,5 @@
+from . import line_bot_api
+
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
