@@ -6,10 +6,10 @@ from linebot.models import (
 
 # from utility import line_bot_api
 
-def chatbot(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="Test reply by Arya"))
+# def chatbot(event):
+#     line_bot_api.reply_message(
+#         event.reply_token,
+#         TextSendMessage(text="Test reply by Arya"))
 
 def chatbot2():
     print("hi")
