@@ -1,20 +1,15 @@
-from . import line_bot_api
-
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
     URITemplateAction, PostbackTemplateAction, MessageTemplateAction,
 )
 
-import Utils
-
+# from utility import line_bot_api
 
 def chatbot(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="Apa lu kntl! test message berbeda")
-    )
-
+        TextSendMessage(text="Test reply by Arya"))
 
 def chatbot2():
     print("hi")
