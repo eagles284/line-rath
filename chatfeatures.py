@@ -8,14 +8,16 @@ from linebot.models import (
 
 from utility import line_bot_api
 
-def chatbot(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
-
 def customresponse(event):
     msg = event.message.text
     if msg.startswith('arya'):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Apa lo manggil nama gue?"))
+
+def chatbot(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
+
+
