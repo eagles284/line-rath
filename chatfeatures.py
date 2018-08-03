@@ -1,3 +1,5 @@
+
+
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
@@ -9,7 +11,11 @@ from utility import line_bot_api
 def chatbot(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text="Test reply by Arya"))
+        TextSendMessage(text=event.message.text))
 
-def chatbot2():
-    print("hi")
+def customresponse(event):
+    msg = event.message.text
+    if msg.startswith('arya'):
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Apa lo manggil nama gue?"))
