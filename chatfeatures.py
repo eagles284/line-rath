@@ -10,7 +10,7 @@ from utility import line_bot_api
 
 def customresponse(event):
     msg = event.message.text
-    if msg.startswith('arya'):
+    if msg == "arya":
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="Apa lo manggil nama gue?"))
