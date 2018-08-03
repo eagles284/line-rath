@@ -11,6 +11,9 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
+import features
+
 app = Flask(__name__)
 # get LINE_CHANNEL_ACCESS_TOKEN from your environment variable
 line_bot_api = LineBotApi(
@@ -40,14 +43,20 @@ def callback():
 
     return 'OK'
 
+# ========
+# FEATURES
+# ========
+myfeatures = [features.chatbot, features.chatbot2]
 
+
+# ===================
+# On Message Received
+# ===================
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="Apa lu kntl! test message berbeda")
-    )
 
+    for fitur in myfeatures:
+        fitur(event)
 
 
 if __name__ == "__main__":
