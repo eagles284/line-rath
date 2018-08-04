@@ -36,7 +36,9 @@ def callback():
 aifeatures = [
     chatfeatures.help,
     chatfeatures.creator,
-    chatfeatures.chatbot
+    chatfeatures.aimodeoff,
+    chatfeatures.aimodeon,
+    chatfeatures.aireply
 ]
 
 # ON MESSAGE RECEIVED: GROUP OR PERSONAL

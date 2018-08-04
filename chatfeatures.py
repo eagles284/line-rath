@@ -8,15 +8,20 @@ from linebot.models import (
 
 from utility import line_bot_api
 
+aimode = False
 helptext = """
-
 === TROMBOSIT ASSISTANCE ===
 | /help
 | /creator
-| /aimode
+| /aimode (on/off)
 ============================
-
 """
+
+
+def textreply(event, message):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=message))
 
 # def customresponse(event, received, send):
 #     msg = event.message.text
@@ -30,9 +35,7 @@ helptext = """
 def help(event):
     msg = event.message.text
     if msg == "/help":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=helptext))
+        textreply(event, helptext)
     return
 
 # /creator
@@ -44,10 +47,26 @@ def creator(event):
             TextSendMessage(text="A person that hate Mandarin much, and hate writing 37 messages"))
     return
 
-# /chatbot off
-def chatbot(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text))
+# /aimode off
+def aimodeoff(event):
+    msg = event.message.text
+    if msg == "/aimode off":
+        global aimode
+        aimode = False
+
+# /aimode on       
+def aimodeon(event):
+    msg = event.message.text
+    if msg == "/aimode on":
+        global aimode
+        aimode = True
+
+def aireply(event):
+    msg = event.message.text
+    global aimode
+    if aimode:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=msg))
 
 
