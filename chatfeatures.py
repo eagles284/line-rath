@@ -7,6 +7,8 @@ from linebot.models import (
 from utility import line_bot_api
 import feature_chatai
 import feature_utils
+from bs4 import BeautifulSoup
+import re
 
 
 aimode = False

@@ -2,6 +2,8 @@ import feedparser
 import requests
 from unicodedata import east_asian_width
 import wikipedia
+import re
+from bs4 import BeautifulSoup
 
 # ====================================
 # Wikipedia Search
