@@ -1,5 +1,6 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
+import nltk
 
 bot = ChatBot('Trombosit')
 

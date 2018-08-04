@@ -7,7 +7,7 @@ from linebot.models import (
 )
 
 from utility import line_bot_api
-from feature_chatai import chat
+import feature_chatai
 
 aimode = False
 helptext = """====== TROMBOSIT HELP ======
@@ -65,6 +65,6 @@ def aireply(event):
     msg = event.message.text
     global aimode
     if aimode:
-        airesponse = chat(msg)
+        airesponse = feature_chatai.chat(msg)
         textreply(event, airesponse)
 

@@ -10,6 +10,7 @@ python-decouple = "*"
 pylint = "*"
 "flake8" = "*"
 chatterbot = "*"
+nltk = "*"
 
 [dev-packages]
 
