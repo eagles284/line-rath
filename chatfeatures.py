@@ -9,13 +9,11 @@ from linebot.models import (
 from utility import line_bot_api
 
 aimode = False
-helptext = """
-=== TROMBOSIT ASSISTANCE ===
+helptext = """=== TROMBOSIT HELP =========
 | /help
 | /creator
 | /aimode (on/off)
-============================
-"""
+============================"""
 
 
 def textreply(event, message):
@@ -42,9 +40,7 @@ def help(event):
 def creator(event):
     msg = event.message.text
     if msg == "/creator":
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text="A person that hate Mandarin much, and hate writing 37 messages"))
+        textreply(event, "A person that hates Mandarin and writing 37 messages. I hope you know what i mean :)")
     return
 
 # /aimode off
@@ -53,6 +49,7 @@ def aimodeoff(event):
     if msg == "/aimode off":
         global aimode
         aimode = False
+        textreply(event, "AI mode off")
 
 # /aimode on       
 def aimodeon(event):
@@ -60,6 +57,7 @@ def aimodeon(event):
     if msg == "/aimode on":
         global aimode
         aimode = True
+        textreply(event, "AI mode on")
 
 def aireply(event):
     msg = event.message.text
