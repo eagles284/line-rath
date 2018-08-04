@@ -1,16 +1,12 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
-bot = ChatBot('Trombosit')
-
+# chats = open('chats.txt', 'r').readlines()
 # responds = open('chats.txt', 'r').readlines()
 # bot.train(responds)
 
-bot.set_trainer(ListTrainer)
-
 def chat(input):
+    bot = ChatBot('Trombosit')
+    bot.set_trainer(ListTrainer)
     response = bot.get_response(input)
     return response
-    
-chats = open('chats.txt', 'r').readlines()
-# print(chats[1])
