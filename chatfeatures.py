@@ -1,5 +1,3 @@
-from chatterbot import ChatBot
-from chatterbot.trainers import ListTrainer
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
@@ -8,13 +6,6 @@ from linebot.models import (
 
 from utility import line_bot_api
 import feature_chatai
-
-bot = ChatBot('Trombosit')
-
-# responds = open('chats.txt', 'r').readlines()
-# bot.train(responds)
-
-bot.set_trainer(ListTrainer)
 
 aimode = False
 helptext = """====== TROMBOSIT HELP ======
@@ -68,15 +59,14 @@ def aimodeon(event):
         aimode = True
         textreply(event, "AI mode on")
 
-def chat(input):
-    response = bot.get_response(input)
-    return response
+def reply(msgserv):
+    return msgserv
 
 def aireply(event):
     msg = event.message.text
     global aimode
     if aimode:
         airesponse = feature_chatai.chat(msg)
-        textreply(event, chat(msg))
+        textreply(event, reply(msg))
         textreply(event, "AI is not working for now...")
     
