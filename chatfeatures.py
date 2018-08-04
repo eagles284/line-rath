@@ -73,7 +73,10 @@ def aireply(event):
     
 def love(event):
     msg = str(event.message.text)
+    msg = "/love aqqil, aqqil"
     if msg.startswith("/love"):
+        
         proceedmsg = msg.replace("/love", "").split(",")
-        replystring = "Hasil percintaan", proceedmsg[0], "&", proceedmsg[1], "\n adalah 100%"
+        replystring = "Hasil percintaan" + proceedmsg[0] + " &" + proceedmsg[1] + "\nadalah 100%"
         textreply(event, replystring)
+        # print(replystring)
