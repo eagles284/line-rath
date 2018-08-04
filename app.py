@@ -36,6 +36,7 @@ def callback():
 aifeatures = [
     chatfeatures.help,
     chatfeatures.creator,
+    chatfeatures.love,
     chatfeatures.aimodeoff,
     chatfeatures.aimodeon,
     chatfeatures.aireply
