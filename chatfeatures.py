@@ -5,7 +5,9 @@ from linebot.models import (
 )
 
 from utility import line_bot_api
+from feature_chatai import bot
 import feature_chatai
+
 
 aimode = False
 helptext = """====== TROMBOSIT HELP ======
@@ -33,6 +35,7 @@ def textreply(event, message):
 def help(event):
     msg = event.message.text
     if msg == "/help":
+        textreply(event, bot.get_response("siapa nama lu"))
         textreply(event, helptext)
     return
 

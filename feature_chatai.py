@@ -5,8 +5,9 @@ from chatterbot.trainers import ListTrainer
 # responds = open('chats.txt', 'r').readlines()
 # bot.train(responds)
 
+bot = ChatBot('Trombosit')
+bot.set_trainer(ListTrainer)
+
 def chat(input):
-    bot = ChatBot('Trombosit')
-    bot.set_trainer(ListTrainer)
     response = bot.get_response(input)
     return response
