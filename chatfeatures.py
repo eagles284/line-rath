@@ -21,7 +21,6 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
-||  /berita
 ============================"""
 
 
@@ -30,76 +29,30 @@ def textreply(event, message):
         event.reply_token,
         TextSendMessage(text=message))
 
-def _news_carousel(entry):
-    summary_soup = BeautifulSoup(entry.summary, "html.parser")
-    # summary has img tag which has no src attribute like:
-    # <img alt="" height="1" width="1"/>
-    images = [x for x in summary_soup.find_all('img') if x.has_attr('src')]
-    if len(images) == 0:
-        return
-    thumbnail_url = images[0]['src']
+# def _news_carousel(entry):
+#     summary_soup = BeautifulSoup(entry.summary, "html.parser")
+#     # summary has img tag which has no src attribute like:
+#     # <img alt="" height="1" width="1"/>
+#     images = [x for x in summary_soup.find_all('img') if x.has_attr('src')]
+#     if len(images) == 0:
+#         return
+#     thumbnail_url = images[0]['src']
 
-    # carousel column text is accepted until 60 characters when set the thumbnail image.
-    carousel_text = summary_soup.find_all('font')[5].contents[0]
-    carousel_text = carousel_text[:57] + '...' if len(carousel_text) > 60 else carousel_text
+#     # carousel column text is accepted until 60 characters when set the thumbnail image.
+#     carousel_text = summary_soup.find_all('font')[5].contents[0]
+#     carousel_text = carousel_text[:57] + '...' if len(carousel_text) > 60 else carousel_text
 
-    # carousel column title is accepted until 40 characters.
-    title = entry.title[:37] + '...' if len(entry.title) > 40 else entry.title
+#     # carousel column title is accepted until 40 characters.
+#     title = entry.title[:37] + '...' if len(entry.title) > 40 else entry.title
 
-    return CarouselColumn(
-        thumbnail_image_url=thumbnail_url,
-        title=title,
-        text=carousel_text,
-        actions=[URITemplateAction(label='Buka di Browser', uri=entry.link)],
-    )
+#     return CarouselColumn(
+#         thumbnail_image_url=thumbnail_url,
+#         title=title,
+#         text=carousel_text,
+#         actions=[URITemplateAction(label='Buka di Browser', uri=entry.link)],
+#     )
 
-carousel_template_message = TemplateSendMessage(
-    alt_text='Carousel template',
-    template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                thumbnail_image_url='https://example.com/item1.jpg',
-                title='this is menu1',
-                text='description1',
-                actions=[
-                    PostbackAction(
-                        label='postback1',
-                        text='postback text1',
-                        data='action=buy&itemid=1'
-                    ),
-                    MessageAction(
-                        label='message1',
-                        text='message text1'
-                    ),
-                    URIAction(
-                        label='uri1',
-                        uri='http://example.com/1'
-                    )
-                ]
-            ),
-            CarouselColumn(
-                thumbnail_image_url='https://example.com/item2.jpg',
-                title='this is menu2',
-                text='description2',
-                actions=[
-                    PostbackAction(
-                        label='postback2',
-                        text='postback text2',
-                        data='action=buy&itemid=2'
-                    ),
-                    MessageAction(
-                        label='message2',
-                        text='message text2'
-                    ),
-                    URIAction(
-                        label='uri2',
-                        uri='http://example.com/2'
-                    )
-                ]
-            )
-        ]
-    )
-)
+
 
 # def customresponse(event, received, send):
 #     msg = event.message.text
@@ -171,9 +124,9 @@ def wiki(event):
         textreply(event, replystring)
 
 # /berita
-def berita(event):
-    msg = str(event.message.text)
-    if msg == "/berita":
+# def berita(event):
+#     msg = str(event.message.text)
+#     if msg == "/berita":
         # columns = [_news_carousel(entry) for entry in feature_utils.google_news()]
 
         # # Carousel template is accepted until 5 columns.
@@ -184,4 +137,4 @@ def berita(event):
         #     alt_text="Berita hari ini \n Pesan tidak dapat dilihat",
         #     template=CarouselTemplate(columns=columns)
         # )
-        line_bot_api.reply_message(event.reply_token, carousel_template_message)
+        # line_bot_api.reply_message(event.reply_token, carousel_template_message)
