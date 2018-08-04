@@ -13,7 +13,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /help
 ||  /creator
 ||  /aimode (on/off)
-||  /love (orang 1, orang 2)
+||  /love (orang1, orang2)
 ============================"""
 
 
@@ -71,3 +71,7 @@ def aireply(event):
         airesponse = feature_chatai.chat(msg)
         textreply(event, str(airesponse))
     
+def love(event):
+    msg = str(event.message.text)
+    if msg.startswith("/love"):
+        textreply(event, "Calculating love")
