@@ -4,9 +4,9 @@ from linebot.models import (
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
     URITemplateAction, PostbackTemplateAction, MessageTemplateAction,
 )
-
 from utility import line_bot_api
 import feature_chatai
+import feature_utils
 
 
 aimode = False
@@ -15,6 +15,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /creator
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
+||  /wikipedia (search...)
 ============================"""
 
 
@@ -72,6 +73,7 @@ def aireply(event):
         airesponse = feature_chatai.chat(msg)
         textreply(event, str(airesponse))
     
+# /love
 def love(event):
     msg = str(event.message.text)
     if msg.startswith("/love"):
@@ -81,3 +83,14 @@ def love(event):
         replystring = "Hasil percintaan: \n" + proceedmsg[0] + " &" + proceedmsg[1] + " adalah " + str(int_love) + "%"
         textreply(event, replystring)
         # print(replystring)
+
+# /wikipedia
+def wiki(event):
+    msg = str(event.message.text)
+    if msg.startswith("/wikipedia"):
+
+        cleanmsg = msg.replace("/wikipedia","")
+        replystring = str(feature_utils.wikipedia_search(cleanmsg))
+        textreply(event, replystring)
+
+

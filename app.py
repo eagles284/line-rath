@@ -37,6 +37,7 @@ aifeatures = [
     chatfeatures.help,
     chatfeatures.creator,
     chatfeatures.love,
+    chatfeatures.wiki,
     chatfeatures.aimodeoff,
     chatfeatures.aimodeon,
     chatfeatures.aireply

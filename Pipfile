@@ -11,6 +11,9 @@ pylint = "*"
 "flake8" = "*"
 chatterbot = "*"
 nltk = "*"
+wikipedia = "*"
+"bs4" = "*"
+feedparser = "*"
 
 [dev-packages]
 
