@@ -3,12 +3,15 @@ from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
     URITemplateAction, PostbackTemplateAction, MessageTemplateAction,
+    LocationSendMessage, LocationMessage,
 )
 from utility import line_bot_api
 import feature_chatai
 import feature_utils
 from bs4 import BeautifulSoup
 import re
+import requests
+
 
 
 aimode = False
@@ -121,16 +124,21 @@ def wiki(event):
 
 # /berita
 def berita(event):
-    msg = event.message.text
+    msg = str(event.message.text)
     if msg == "/berita":
-        columns = [_news_carousel(entry) for entry in feature_utils.google_news()]
+        # columns = [_news_carousel(entry) for entry in feature_utils.google_news()]
 
-        # Carousel template is accepted until 5 columns.
-        # See https://devdocs.line.me/ja/#template-message
-        columns = [c for c in columns if c is not None][:5]
+        # # Carousel template is accepted until 5 columns.
+        # # See https://devdocs.line.me/ja/#template-message
+        # columns = [c for c in columns if c is not None][:5]
 
-        carousel_template_message = TemplateSendMessage(
-            alt_text="Berita hari ini \n Pesan tidak dapat dilihat",
-            template=CarouselTemplate(columns=columns)
-        )
-        line_bot_api.reply_message(event.reply_token, messages=carousel_template_message)
+        # carousel_template_message = TemplateSendMessage(
+        #     alt_text="Berita hari ini \n Pesan tidak dapat dilihat",
+        #     template=CarouselTemplate(columns=columns)
+        # )
+        line_bot_api.reply_message(event.reply_token, LocationSendMessage(
+            title='my location',
+            address='Tokyo',
+            latitude=35.65910807942215,
+            longitude=139.70372892916203
+        )   )
