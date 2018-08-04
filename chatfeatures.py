@@ -35,9 +35,7 @@ def textreply(event, message):
 def help(event):
     msg = event.message.text
     if msg == "/help":
-        # textreply(event, helptext)
-        airesponse = feature_chatai.chat(msg)
-        textreply(event, airesponse)
+        textreply(event, helptext)
     return
 
 # /creator
@@ -69,4 +67,4 @@ def aireply(event):
     if aimode:
         airesponse = feature_chatai.chat(msg)
         textreply(event, airesponse)
-
+        textreply(event, "AI is not working...")

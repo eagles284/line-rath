@@ -8,7 +8,6 @@ bot = ChatBot('Trombosit')
 
 bot.set_trainer(ListTrainer)
 
-
 def chat(input):
     response = bot.get_response(input)
     return response
