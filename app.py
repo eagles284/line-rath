@@ -34,7 +34,8 @@ def callback():
 
 # FEATURES
 aifeatures = [
-    chatfeatures.customresponse,
+    chatfeatures.help,
+    chatfeatures.creator,
     chatfeatures.chatbot
 ]
 
