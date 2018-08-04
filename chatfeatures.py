@@ -9,10 +9,10 @@ from linebot.models import (
 from utility import line_bot_api
 
 aimode = False
-helptext = """=== TROMBOSIT HELP =========
-| /help
-| /creator
-| /aimode (on/off)
+helptext = """====== TROMBOSIT HELP ======
+||  /help
+||  /creator
+||  /aimode (on/off)
 ============================"""
 
 
