@@ -73,7 +73,6 @@ def aireply(event):
     
 def love(event):
     msg = str(event.message.text)
-    msg = "/love aqqil, aqqil"
     if msg.startswith("/love"):
         
         proceedmsg = msg.replace("/love", "").split(",")
