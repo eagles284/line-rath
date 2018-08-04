@@ -69,5 +69,5 @@ def aireply(event):
     global aimode
     if aimode:
         airesponse = feature_chatai.chat(msg)
-        textreply(event, airesponse)
+        textreply(event, str(airesponse))
     
