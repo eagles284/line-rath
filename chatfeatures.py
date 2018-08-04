@@ -65,6 +65,7 @@ def aireply(event):
     msg = event.message.text
     global aimode
     if aimode:
-        textreply(event, chat(msg))
+        airesponse = chat(msg)
+        textreply(event, airesponse)
 
 
