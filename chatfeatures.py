@@ -1,3 +1,4 @@
+from random import randint
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
@@ -76,6 +77,7 @@ def love(event):
     if msg.startswith("/love"):
         
         proceedmsg = msg.replace("/love", "").split(",")
-        replystring = "Hasil percintaan: \n" + proceedmsg[0] + " &" + proceedmsg[1] + " adalah 100%"
+        int_love = randint(0,100)
+        replystring = "Hasil percintaan: \n" + proceedmsg[0] + " &" + proceedmsg[1] + " adalah " + str(int_love) + "%"
         textreply(event, replystring)
         # print(replystring)
