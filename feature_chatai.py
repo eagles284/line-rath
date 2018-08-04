@@ -5,7 +5,7 @@ from chatterbot.trainers import ListTrainer
 # responds = open('chats.txt', 'r').readlines()
 # bot.train(responds)
 
-bot = ChatBot('Trombosit')
+bot = ChatBot('Trombosit', storage_adapter='chatterbot.storage.SQLStorageAdapter')
 bot.set_trainer(ListTrainer)
 
 def chat(input):
