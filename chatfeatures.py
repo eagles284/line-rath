@@ -16,6 +16,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
+||  /berita
 ============================"""
 
 
@@ -23,6 +24,29 @@ def textreply(event, message):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=message))
+
+def _news_carousel(entry):
+    summary_soup = BeautifulSoup(entry.summary, "html.parser")
+    # summary has img tag which has no src attribute like:
+    # <img alt="" height="1" width="1"/>
+    images = [x for x in summary_soup.find_all('img') if x.has_attr('src')]
+    if len(images) == 0:
+        return
+    thumbnail_url = images[0]['src']
+
+    # carousel column text is accepted until 60 characters when set the thumbnail image.
+    carousel_text = summary_soup.find_all('font')[5].contents[0]
+    carousel_text = carousel_text[:57] + '...' if len(carousel_text) > 60 else carousel_text
+
+    # carousel column title is accepted until 40 characters.
+    title = entry.title[:37] + '...' if len(entry.title) > 40 else entry.title
+
+    return CarouselColumn(
+        thumbnail_image_url=thumbnail_url,
+        title=title,
+        text=carousel_text,
+        actions=[URITemplateAction(label='Buka di Browser', uri=entry.link)],
+    )
 
 # def customresponse(event, received, send):
 #     msg = event.message.text
@@ -44,7 +68,7 @@ def help(event):
 def creator(event):
     msg = event.message.text
     if msg == "/creator":
-        textreply(event, "A person that hates Mandarin and writing 37 messages. I hope you know what i mean :)")
+        textreply(event, "A man who hates Mandarin very much. I hope you know what I mean :)")
     return
 
 # /aimode off
@@ -93,4 +117,18 @@ def wiki(event):
         replystring = str(feature_utils.wikipedia_search(cleanmsg))
         textreply(event, replystring)
 
+# /berita
+def berita(event):
+    msg = event.message.text
+    if msg == "/berita":
+        columns = [_news_carousel(entry) for entry in feature_utils.google_news()]
 
+        # Carousel template is accepted until 5 columns.
+        # See https://devdocs.line.me/ja/#template-message
+        columns = [c for c in columns if c is not None][:5]
+
+        carousel_template_message = TemplateSendMessage(
+            alt_text="Berita hari ini \n Pesan tidak dapat dilihat",
+            template=CarouselTemplate(columns=columns)
+        )
+        line_bot_api.reply_message(event.reply_token, messages=carousel_template_message)
