@@ -13,6 +13,9 @@ def chat(input):
     response = bot.get_response(input)
     return response
 
-while True:
-    inp = input('You: ')
-    print(chat(inp))
+# while True:
+#     inp = input('You: ')
+#     print(chat(inp))
+
+chats = open('chats.txt', 'r').readlines()
+print(chats[1])

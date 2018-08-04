@@ -33,8 +33,10 @@ def textreply(event, message):
 def help(event):
     msg = event.message.text
     if msg == "/help":
-        textreply(event, helptext)
+        # textreply(event, helptext)
+        textreply(event, feature_chatai.chats[1])
     return
+
 
 # /creator
 def creator(event):
