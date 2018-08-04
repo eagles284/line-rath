@@ -38,6 +38,7 @@ aifeatures = [
     chatfeatures.creator,
     chatfeatures.love,
     chatfeatures.wiki,
+    chatfeatures.berita,
     chatfeatures.aimodeoff,
     chatfeatures.aimodeon,
     chatfeatures.aireply
