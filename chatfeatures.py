@@ -68,4 +68,3 @@ def aireply(event):
         airesponse = chat(msg)
         textreply(event, airesponse)
 
-
