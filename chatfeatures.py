@@ -76,6 +76,6 @@ def love(event):
     if msg.startswith("/love"):
         
         proceedmsg = msg.replace("/love", "").split(",")
-        replystring = "Hasil percintaan" + proceedmsg[0] + " &" + proceedmsg[1] + "\nadalah 100%"
+        replystring = "Hasil percintaan: \n" + proceedmsg[0] + " &" + proceedmsg[1] + " adalah 100%"
         textreply(event, replystring)
         # print(replystring)
