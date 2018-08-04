@@ -9,7 +9,9 @@ bot = ChatBot('Trombosit', storage_adapter='chatterbot.storage.SQLStorageAdapter
 bot.set_trainer(ListTrainer)
 
 def chat(input):
+    print("received message:", input)
     response = bot.get_response(input)
+    print("sending message:", response)
     return response
 
 chatmess = "woi"
