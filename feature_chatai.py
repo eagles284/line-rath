@@ -9,8 +9,6 @@ bot.set_trainer(ListTrainer)
 
 bot.train(responds)
 
-while True:
-    received = input('you: ')
-    response = bot.get_response(received)
-
-    print(response)
+def chat(input):
+    response = bot.get_response(input)
+    return response

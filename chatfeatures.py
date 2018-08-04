@@ -7,12 +7,14 @@ from linebot.models import (
 )
 
 from utility import line_bot_api
+from feature_chatai import chat
 
 aimode = False
 helptext = """====== TROMBOSIT HELP ======
 ||  /help
 ||  /creator
 ||  /aimode (on/off)
+||  /love (orang 1, orang 2)
 ============================"""
 
 
@@ -63,8 +65,6 @@ def aireply(event):
     msg = event.message.text
     global aimode
     if aimode:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg))
+        textreply(event, chat(msg))
 
 

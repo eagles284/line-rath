@@ -9,6 +9,7 @@ line-bot-sdk = "*"
 python-decouple = "*"
 pylint = "*"
 "flake8" = "*"
+chatterbot = "*"
 
 [dev-packages]
 
