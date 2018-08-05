@@ -132,11 +132,12 @@ def wiki(event):
         textreply(event, replystring)
 
 # /webss
+# /instass
 def webss(event):
     msg = str(event.message.text)
     if msg.startswith("/webss"):
 
-        feature_utils.ssweb("www.google.com")
+        feature_utils.ssweb(url)
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
