@@ -4,7 +4,10 @@ from unicodedata import east_asian_width
 import wikipedia
 import re
 from bs4 import BeautifulSoup
-# from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use('agg')
+from matplotlib import pyplot as plt
+
 
 # ====================================
 # Wikipedia Search
