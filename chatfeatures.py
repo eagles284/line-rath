@@ -135,8 +135,11 @@ def grafik(event):
     if msg.startswith("/grafik"):
         msg.replace("/grafik", "")
 
+        print("Command is", msg)
         fileurl = str(feature_utils.plot(msg))
-        # time.sleep(2)
+        time.sleep(5)
+        print("File url is", fileurl)
+
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
