@@ -136,16 +136,19 @@ def grafik(event):
         msg.replace("/grafik", "")
 
         print("Command is", msg)
-        fileurl = str(feature_utils.plot(msg))
+        fileurl = feature_utils.plot(msg)
         time.sleep(5)
         print("File url is", fileurl)
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(
-                original_content_url=fileurl,
-                preview_image_url=fileurl
-            ))
+        if fileurl is not "None":
+            line_bot_api.reply_message(
+                event.reply_token,
+                ImageSendMessage(
+                    original_content_url=fileurl,
+                    preview_image_url=fileurl
+                ))
+        else:
+            textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 3x + 2y = 6")
 
 
 # /berita

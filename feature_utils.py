@@ -104,13 +104,14 @@ def plot(persamaan):
             # my = [yInt, yInt + m]
             # plt.plot(mx,my, color='red', lw=5)
 
-
             plt.savefig('static/' + realCurrentDate + ".png")
-
             fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+            print("fileurl:", fileurl)
+            
+            return str(fileurl)
 
             # plt.show()  # REMOVE THIS ON EXECUTE!!!
-            return fileurl
+            
         except IndexError:
             return
         except Exception:
@@ -118,6 +119,7 @@ def plot(persamaan):
     else:
             print("Format error")
             return
+
 
 # ==================
 # Screenshot Website
