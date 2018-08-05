@@ -3,7 +3,8 @@ from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
     URITemplateAction, PostbackTemplateAction, MessageTemplateAction,
-    LocationSendMessage, LocationMessage, PostbackAction, URIAction, MessageAction
+    LocationSendMessage, LocationMessage, PostbackAction, URIAction, MessageAction,
+    ImageSendMessage,
 )
 from utility import line_bot_api
 import feature_chatai
@@ -21,6 +22,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
+||  /grafik (ax+by=c)
 ============================"""
 
 
@@ -122,6 +124,19 @@ def wiki(event):
         cleanmsg = msg.replace("/wikipedia","")
         replystring = str(feature_utils.wikipedia_search(cleanmsg))
         textreply(event, replystring)
+
+def grafik(event):
+    msg = str(event.message.text)
+    if msg.startswith("/grafik"):
+
+        feature_utils.plot()
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(
+                original_content_url='https://trombosit.herokuapp.com/math.png',
+                preview_image_url='https://trombosit.herokuapp.com/math.png'
+            ))
+
 
 # /berita
 # def berita(event):

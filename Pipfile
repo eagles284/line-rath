@@ -14,6 +14,8 @@ nltk = "*"
 wikipedia = "*"
 "bs4" = "*"
 feedparser = "*"
+matplotlib = "*"
+pandas = "*"
 
 [dev-packages]
 
