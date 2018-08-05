@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 import datetime
 import contextlib
 import selenium.webdriver as webdriver
+from selenium.webdriver.chrome.options import Options
+import os
 import matplotlib
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
@@ -55,19 +57,20 @@ def ssweb(url):
 
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
-    # options.add_argument("--test-type")
+    options.add_argument("--test-type")
     options.add_argument("--headless")  
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
     # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
     options.binary_location = "/app/.apt/usr/bin/google-chrome"
+
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     ##
     driver.get('https://python.org')
-    driver.save_screenshot("static/screenshot.png")
+    driver.get_screenshot_as_file("static/ss.png")
     driver.close()
 
-ssweb("/webss www.google.com")
+# ssweb("/webss www.google.com")
 
 # ================
 # Grafik Persamaan
