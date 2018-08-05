@@ -18,7 +18,7 @@ import contextlib
 
 
 aimode = False
-helptext = """====== TROMBOSIT HELP ======
+helptext = """====== TROMBOSIT V1.5 ======
 ||  /help
 ||  /creator
 ||  /aimode (on/off)
@@ -26,7 +26,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
 ||   -> contoh: 1x + 1y = 1
-||  /webss (url)
+||  /screenshot (web url)
 ||  /instagram (ig username)
 ==========================="""
 
@@ -130,11 +130,11 @@ def wiki(event):
         replystring = str(feature_utils.wikipedia_search(cleanmsg))
         textreply(event, replystring)
 
-# /webss
-# /instass
+# /screenshot
+# /instagram
 def webss(event):
     msg = str(event.message.text)
-    if msg.startswith("/webss"):
+    if msg.startswith("/screenshot"):
 
         wFile = feature_utils.ssweb(msg)
         print("IMG File is:", wFile)
@@ -152,7 +152,7 @@ def webss(event):
         print("IMG File is:", wFile)
 
         time.sleep(2)
-        
+
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(

@@ -52,8 +52,12 @@ def ssweb(url):
     realCurrentDate = datenow
 
     rawinputstring = url.replace(" ", "")
-    inputstring = rawinputstring.replace("/webss", "")
-    inputstring = rawinputstring.replace("/instass", "")
+
+    inputstring = str("")
+    if rawinputstring.startswith("/instagram"):
+        inputstring = rawinputstring.replace("/instagram", "")
+    elif rawinputstring.startswith("/screenshot"):
+        inputstring = rawinputstring.replace("/screenshot", "")
     print(inputstring)
 
     options = webdriver.ChromeOptions()
