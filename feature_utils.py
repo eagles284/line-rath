@@ -4,8 +4,8 @@ from unicodedata import east_asian_width
 import wikipedia
 import re
 from bs4 import BeautifulSoup
-import matplotlib
 import datetime
+import matplotlib
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
@@ -107,15 +107,13 @@ def plot(persamaan):
             plt.savefig('static/' + realCurrentDate + ".png")
             fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
             print("fileurl:", fileurl)
-            
+
             return str(fileurl)
 
             # plt.show()  # REMOVE THIS ON EXECUTE!!!
             
         except IndexError:
-            return
-        except Exception:
-            return
+            return IndexError
     else:
             print("Format error")
             return
