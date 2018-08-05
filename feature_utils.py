@@ -40,7 +40,9 @@ def google_news():
 # ================
 def plot(persamaan):
 
-    inputstring = str(persamaan)
+    rawinputstring = persamaan.replace(" ", "")
+    inputstring = rawinputstring.replace("/grafik", "")
+    print(inputstring)
 
     if "x" in inputstring and "y" in inputstring and "=" in inputstring and "/" not in inputstring and "*" not in inputstring:
         
