@@ -12,6 +12,7 @@ import feature_utils
 from bs4 import BeautifulSoup
 import re
 import requests
+import datetime
 
 
 
@@ -135,8 +136,8 @@ def grafik(event):
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                original_content_url='https://trombosit.herokuapp.com/static/math.png',
-                preview_image_url='https://trombosit.herokuapp.com/static/math.png'
+                original_content_url=feature_utils.plot(),
+                preview_image_url=feature_utils.plot()
             ))
 
 

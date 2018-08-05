@@ -5,6 +5,7 @@ import wikipedia
 import re
 from bs4 import BeautifulSoup
 import matplotlib
+import datetime
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
@@ -53,8 +54,8 @@ def plot():
 
     # Plot the line
 
-    x = [0, 1]
-    y = [1, 0]
+    x = [0, 2]
+    y = [2, 0]
 
     plt.plot(x, y, color="red")
     # plt.xlabel('x')
@@ -69,8 +70,15 @@ def plot():
     # mx = [0, 1]
     # my = [yInt, yInt + m]
     # plt.plot(mx,my, color='red', lw=5)
-    plt.savefig('static/math.png')
-    
+
+    datenowraw = str(datetime.datetime.now().time())
+    datenow = datenowraw.replace(":","")
+
+    plt.savefig('static/' + datenow + ".png")
+
+    fileurl = "https://trombosit.herokuapp.com/static/" + datenow + ".png"
+
+    return fileurl
     # plt.show()
 
 # ==================
