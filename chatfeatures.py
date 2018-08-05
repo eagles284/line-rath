@@ -23,7 +23,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
 ||  /screenshot (web/instagram id)
-||  (in progress) /grafik (ax+by=c) 
+||  (in progress) /grafik 
 ============================"""
 
 
