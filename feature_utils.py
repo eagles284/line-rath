@@ -66,12 +66,12 @@ def ssweb(url):
 
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     ##
-    driver.get('https://www.google.com')
+    driver.get('https://www.instagram.com')
     print("Getting screenshot")
     driver.get_screenshot_as_file("static/ss.png")
-    driver.get_screenshot_as_png("static/sspng.png")
     driver.save_screenshot("static/ssave.png")
     driver.close()
+    print("Closing screenshot")
 
 # ssweb("/webss www.google.com")
 

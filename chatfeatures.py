@@ -29,7 +29,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||=== Akan Di Implementasi =====
 ||  /webss (url)
 ||  /instass (username)
-========================="""
+==========================="""
 
 
 def textreply(event, message):
