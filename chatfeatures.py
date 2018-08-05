@@ -140,7 +140,7 @@ def grafik(event):
         time.sleep(5)
         print("File url is", fileurl)
 
-        if fileurl is not "None":
+        if fileurl is not None:
             line_bot_api.reply_message(
                 event.reply_token,
                 ImageSendMessage(
