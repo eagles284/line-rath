@@ -136,8 +136,10 @@ def grafik(event):
     msg = str(event.message.text)
     if msg == "/ujian true":
         bukanUjian = False
+        textreply(event, "Lagi ujian : ON")
     elif msg == "/ujian false":
         bukanUjian = True
+        textreply(event, "Lagi ujian : OFF")
     if bukanUjian:
         if msg.startswith("/grafik"):
             msg.replace("/grafik", "")
