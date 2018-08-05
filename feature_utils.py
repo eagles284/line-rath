@@ -53,6 +53,7 @@ def ssweb(url):
 
     rawinputstring = url.replace(" ", "")
     inputstring = rawinputstring.replace("/webss", "")
+    inputstring = rawinputstring.replace("/instass", "")
     print(inputstring)
 
     options = webdriver.ChromeOptions()
@@ -66,14 +67,16 @@ def ssweb(url):
 
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     ##
+    webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+
     driver.get('http://' + inputstring)
     driver.maximize_window()
     print("Getting screenshot")
-    driver.get_screenshot_as_file("static/ss.png")
-    driver.save_screenshot("static/ssave.png")
+    driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
+    driver.save_screenshot("static/ss.png")
     driver.close()
     print("Closing screenshot")
-
+    return str(webFile)
 # ssweb("/webss www.google.com")
 
 # ================

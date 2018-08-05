@@ -27,7 +27,7 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /grafik (ax + by = c)
 ||   -> contoh: 1x + 1y = 1
 ||  /webss (url)
-||  /instass (username)
+||  /instagram (ig username)
 ==========================="""
 
 
@@ -136,22 +136,28 @@ def webss(event):
     msg = str(event.message.text)
     if msg.startswith("/webss"):
 
-        feature_utils.ssweb(msg)
+        wFile = feature_utils.ssweb(msg)
+        print("IMG File is:", wFile)
+
         time.sleep(2)
+        
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                original_content_url="https://trombosit.herokuapp.com/static/ss.png",
-                preview_image_url="https://trombosit.herokuapp.com/static/ss.png"
+                original_content_url=wFile,
+                preview_image_url=wFile
             ))
-    elif msg.startswith("/instass"):
-        feature_utils.ssweb("www.instagram.com/" + msg)
+    elif msg.startswith("/instagram"):
+        wFile = feature_utils.ssweb("www.instagram.com/" + msg)
+        print("IMG File is:", wFile)
+
         time.sleep(2)
+        
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                original_content_url="https://trombosit.herokuapp.com/static/ss.png",
-                preview_image_url="https://trombosit.herokuapp.com/static/ss.png"
+                original_content_url=wFile,
+                preview_image_url=wFile
             ))
 
 
