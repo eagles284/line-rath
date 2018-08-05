@@ -135,7 +135,7 @@ def grafik(event):
     if msg.startswith("/grafik"):
         msg.replace("/grafik", "")
 
-        fileurl = feature_utils.plot(msg)
+        fileurl = str(feature_utils.plot(msg))
         # time.sleep(2)
         line_bot_api.reply_message(
             event.reply_token,
