@@ -5,6 +5,8 @@ import wikipedia
 import re
 from bs4 import BeautifulSoup
 import datetime
+import contextlib
+import selenium.webdriver as webdriver
 import matplotlib
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
@@ -37,6 +39,32 @@ def google_news():
 
 currentDate = ""
 realCurrentDate = ""
+
+# ==================
+# Screenshot Website
+# ==================
+def ssweb(url):
+    global currentDate, realCurrentDate
+    currentDate = str(datetime.datetime.now().time())
+    datenow = currentDate.replace(":","")
+    realCurrentDate = datenow
+
+    rawinputstring = url.replace(" ", "")
+    inputstring = rawinputstring.replace("/webss", "")
+    print(inputstring)
+
+    options = webdriver.ChromeOptions()
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument("--test-type")
+    options.binary_location = "/usr/bin/chromium"
+    driver = webdriver.Chrome('/app/.apt/usr/bin/google-chrome',chrome_options=options)
+    
+    driver.get('https://python.org')
+    driver.save_screenshot("/static/screenshot.png")
+    
+    driver.close()
+
+ssweb("/webss www.google.com")
 
 # ================
 # Grafik Persamaan
@@ -127,7 +155,3 @@ def plot(persamaan):
 
 # plot("3x+2y=6")
 # plot("5x+4y=20")
-
-# ==================
-# Screenshot Website
-# ==================
