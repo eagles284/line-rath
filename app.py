@@ -42,6 +42,7 @@ aifeatures = [
     chatfeatures.love,
     chatfeatures.wiki,
     chatfeatures.grafik,
+    chatfeatures.webss,
     chatfeatures.aimodeoff,
     chatfeatures.aimodeon,
     chatfeatures.aireply
