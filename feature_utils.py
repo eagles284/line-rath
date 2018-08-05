@@ -35,10 +35,18 @@ def google_news():
     parsed = feedparser.parse(url)
     return parsed.entries
 
+currentDate = ""
+realCurrentDate = ""
+
 # ================
 # Grafik Persamaan
 # ================
 def plot(persamaan):
+
+    global currentDate, realCurrentDate
+    currentDate = str(datetime.datetime.now().time())
+    datenow = currentDate.replace(":","")
+    realCurrentDate = datenow
 
     rawinputstring = persamaan.replace(" ", "")
     inputstring = rawinputstring.replace("/grafik", "")
@@ -96,12 +104,10 @@ def plot(persamaan):
             # my = [yInt, yInt + m]
             # plt.plot(mx,my, color='red', lw=5)
 
-            datenowraw = str(datetime.datetime.now().time())
-            datenow = datenowraw.replace(":","")
 
-            plt.savefig('static/' + datenow + ".png")
+            plt.savefig('static/' + realCurrentDate + ".png")
 
-            fileurl = "https://trombosit.herokuapp.com/static/" + datenow + ".png"
+            fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
 
             # plt.show()  # REMOVE THIS ON EXECUTE!!!
             return fileurl
