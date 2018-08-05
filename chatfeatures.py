@@ -130,26 +130,35 @@ def wiki(event):
         textreply(event, replystring)
 
 # /grafik
+bukanUjian = True
 def grafik(event):
+    global bukanUjian
     msg = str(event.message.text)
-    if msg.startswith("/grafik"):
-        msg.replace("/grafik", "")
+    if msg == "/ujian true":
+        bukanUjian = False
+    elif msg == "/ujian false":
+        bukanUjian = True
+    if bukanUjian:
+        if msg.startswith("/grafik"):
+            msg.replace("/grafik", "")
 
-        print("Command is", msg)
-        fileurl = feature_utils.plot(msg)
-        time.sleep(2)
-        print("File url is", fileurl)
+            print("Command is", msg)
+            fileurl = feature_utils.plot(msg)
+            time.sleep(2)
+            print("File url is", fileurl)
 
-        if fileurl is not None:
-            line_bot_api.reply_message(
-                event.reply_token,
-                ImageSendMessage(
-                    original_content_url=fileurl,
-                    preview_image_url=fileurl
-                ))
-        else:
-            textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 3x + 2y = 6")
-
+            if fileurl is not None:
+                line_bot_api.reply_message(
+                    event.reply_token,
+                    ImageSendMessage(
+                        original_content_url=fileurl,
+                        preview_image_url=fileurl
+                    ))
+            else:
+                textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 3x + 2y = 6")
+    else:
+        if msg.startswith("/grafik"):
+            textreply(event, "Lagi ujian cuk, anda tercyduk!!")
 
 # /berita
 # def berita(event):
