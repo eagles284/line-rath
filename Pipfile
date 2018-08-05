@@ -16,6 +16,7 @@ wikipedia = "*"
 feedparser = "*"
 matplotlib = "*"
 pandas = "*"
+six = "*"
 
 [dev-packages]
 
