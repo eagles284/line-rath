@@ -17,6 +17,7 @@ feedparser = "*"
 matplotlib = "*"
 pandas = "*"
 six = "*"
+selenium = "*"
 
 [dev-packages]
 

@@ -22,7 +22,8 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
-||  /grafik (ax+by=c)
+||  /screenshot (web/instagram id)
+||  (in progress) /grafik (ax+by=c) 
 ============================"""
 
 
@@ -125,11 +126,12 @@ def wiki(event):
         replystring = str(feature_utils.wikipedia_search(cleanmsg))
         textreply(event, replystring)
 
+# /grafik
 def grafik(event):
     msg = str(event.message.text)
     if msg.startswith("/grafik"):
 
-        feature_utils.plot()
+        # feature_utils.plot()
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(

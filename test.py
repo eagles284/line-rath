@@ -1,5 +1,30 @@
 # from matplotlib import pyplot as plt
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # print(8*"\n")
 
 # def plot():
