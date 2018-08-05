@@ -66,7 +66,7 @@ def ssweb(url):
 
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     ##
-    driver.get('http://' + url)
+    driver.get('http://' + inputstring)
     driver.maximize_window()
     print("Getting screenshot")
     driver.get_screenshot_as_file("static/ss.png")
