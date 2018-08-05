@@ -55,6 +55,7 @@ def plot(persamaan):
     if "x" in inputstring and "y" in inputstring and "=" in inputstring and "/" not in inputstring and "*" not in inputstring:
         
         try:
+            plt.clf()
             removex = inputstring.replace(" ", "").split("x")
             removey = removex[1].split("y")
             removee = removey[1].split("=")
@@ -111,7 +112,7 @@ def plot(persamaan):
             print("Generating URL")
 
             fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
-            
+
             print("fileurl:", fileurl)
 
             return str(fileurl)
@@ -124,6 +125,8 @@ def plot(persamaan):
             print("Format error")
             return
 
+plot("3x+2y=6")
+plot("5x+4y=20")
 
 # ==================
 # Screenshot Website
