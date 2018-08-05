@@ -13,10 +13,12 @@ from utility import (
 )
 import chatfeatures
 
+@app.route("/math.png")
+
+
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
-
 
     # get request body as text
     body = request.get_data(as_text=True)
