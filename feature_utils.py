@@ -80,7 +80,7 @@ def plot(persamaan):
             # print(df)
 
             # Plot the line
-
+            print("Going to plot")
             xi = [0, x]
             yi = [y, 0]
 
@@ -90,7 +90,7 @@ def plot(persamaan):
             plt.axhline()
             plt.axvline()    
             plt.grid()
-
+            print("Going to plot...2")
             strx = str(x)
             stry = str(y)
 
@@ -98,14 +98,20 @@ def plot(persamaan):
             plt.axvspan(x, y, facecolor='g', alpha=0)
             plt.annotate(strx[0:5],(x,0-0.25), color='green')
             plt.annotate(stry[0:5],(0+0.25,y), color='green')
-
+            print("PLOT SUCCESS")
             # plot the slope from the y-intercept for 1x
             # mx = [0, 1]
             # my = [yInt, yInt + m]
             # plt.plot(mx,my, color='red', lw=5)
+            print("Creating file....")
 
             plt.savefig('static/' + realCurrentDate + ".png")
+
+            print("Create file success")
+            print("Generating URL")
+
             fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+            
             print("fileurl:", fileurl)
 
             return str(fileurl)
