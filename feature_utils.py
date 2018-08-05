@@ -55,16 +55,16 @@ def ssweb(url):
 
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
-    options.add_argument("--test-type")
+    # options.add_argument("--test-type")
+    options.add_argument("--headless")  
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
     # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
     options.binary_location = "/app/.apt/usr/bin/google-chrome"
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
-    
+    ##
     driver.get('https://python.org')
     driver.save_screenshot("static/screenshot.png")
-    ##
     driver.close()
 
 ssweb("/webss www.google.com")
