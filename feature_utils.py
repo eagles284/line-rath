@@ -63,7 +63,7 @@ def ssweb(url):
     
     driver.get('https://python.org')
     driver.save_screenshot("static/screenshot.png")
-    ##
+    #
     driver.close()
 
 ssweb("/webss www.google.com")
