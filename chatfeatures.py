@@ -131,6 +131,14 @@ def wiki(event):
         replystring = str(feature_utils.wikipedia_search(cleanmsg))
         textreply(event, replystring)
 
+# /webss
+def webss(event):
+    msg = str(event.message.text)
+    if msg.startswith("/webss"):
+
+        feature_utils.ssweb("www.google.com")
+
+
 # /grafik
 bukanUjian = True
 def grafik(event):
