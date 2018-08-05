@@ -58,6 +58,7 @@ def ssweb(url):
     options.add_argument("--test-type")
     options.add_argument('--disable-gpu')
     options.add_argument('--no-sandbox')
+    # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
     options.binary_location = "/app/.apt/usr/bin/google-chrome"
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     
