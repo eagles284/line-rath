@@ -62,6 +62,7 @@ def ssweb(url):
 
     inputstring = rawinputstring.replace(" ", "")
 
+
     print(inputstring)
     print("http://"+inputstring)
     # print("http://instagram.com/"+inputstring)
@@ -85,6 +86,11 @@ def ssweb(url):
         driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
         ##
         webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+
+        if inputstring.startswith("https://"):
+            driver.get(inputstring)
+        elif inputstring.startswith("http://"):
+            driver.get(inputstring)
 
         if url.startswith("/instagram"):
             driver.get('https://' + inputstring)
