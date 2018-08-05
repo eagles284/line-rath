@@ -23,8 +23,9 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /aimode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
-||  /screenshot (web/instagram id)
-||  (in progress) /grafik 
+||  /screenshotig (username)
+||  /grafik (ax + by = c)
+||   -> contoh: 1x + 1y = 1
 ============================"""
 
 
