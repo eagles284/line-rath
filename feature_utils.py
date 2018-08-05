@@ -97,8 +97,8 @@ def plot(persamaan):
 
             # label the y and x - intercept
             plt.axvspan(x, y, facecolor='g', alpha=0)
-            plt.annotate(strx[0:5],(x,0-0.25), color='green')
-            plt.annotate(stry[0:5],(0+0.25,y), color='green')
+            plt.annotate(strx[0:5],(x,0), color='green')
+            plt.annotate(stry[0:5],(0,y), color='green')
             print("PLOT SUCCESS")
             # plot the slope from the y-intercept for 1x
             # mx = [0, 1]
