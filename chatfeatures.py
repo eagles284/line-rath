@@ -26,10 +26,10 @@ helptext = """====== TROMBOSIT HELP ======
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
 ||   -> contoh: 1x + 1y = 1
-||=== Akan Di Implementasi ===
+||=== Akan Di Implementasi =====
 ||  /webss (url)
 ||  /instass (username)
-============================"""
+========================="""
 
 
 def textreply(event, message):
@@ -137,6 +137,12 @@ def webss(event):
     if msg.startswith("/webss"):
 
         feature_utils.ssweb("www.google.com")
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(
+                original_content_url="https://trombosit.herokuapp.com/static/ss.png",
+                preview_image_url="https://trombosit.herokuapp.com/static/ss.png"
+            ))
 
 
 # /grafik
