@@ -69,6 +69,7 @@ def plot():
     # my = [yInt, yInt + m]
     # plt.plot(mx,my, color='red', lw=5)
     plt.savefig('math.png')
+    ##
     # plt.show()
 
 # ==================
