@@ -82,8 +82,11 @@ def ssweb(url):
     driver.get('http://' + inputstring)
 
     driver.maximize_window()
+    driver.fullscreen_window
     if url.startswith("/instagram"):
+        driver.find_element_by_class_name('.Szr5J').click()
         driver.find_element_by_css_selector('.Szr5J').click()
+        
 
     print("Getting screenshot")
     driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
