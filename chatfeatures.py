@@ -132,7 +132,6 @@ def grafik(event):
     msg = str(event.message.text)
     if msg.startswith("/grafik"):
 
-        feature_utils.plot()
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
