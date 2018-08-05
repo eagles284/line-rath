@@ -19,7 +19,7 @@
 #     # Plot the line
 
 #     x = [0, 6]
-#     y = [4, 0]
+#     y = [9, 0]
 
 #     plt.plot(x, y, color="red")
 #     plt.xlabel('x')
