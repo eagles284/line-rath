@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 import re
 import requests
 import datetime
+import time
 
 
 
@@ -133,11 +134,13 @@ def grafik(event):
     msg = str(event.message.text)
     if msg.startswith("/grafik"):
 
+        fileurl = feature_utils.plot(msg)
+        time.sleep(2)
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                original_content_url=feature_utils.plot(),
-                preview_image_url=feature_utils.plot()
+                original_content_url=fileurl,
+                preview_image_url=fileurl
             ))
 
 
