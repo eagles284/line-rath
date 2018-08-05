@@ -125,8 +125,8 @@ def plot(persamaan):
             print("Format error")
             return
 
-plot("3x+2y=6")
-plot("5x+4y=20")
+# plot("3x+2y=6")
+# plot("5x+4y=20")
 
 # ==================
 # Screenshot Website

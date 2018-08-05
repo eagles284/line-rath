@@ -137,7 +137,7 @@ def grafik(event):
 
         print("Command is", msg)
         fileurl = feature_utils.plot(msg)
-        time.sleep(5)
+        time.sleep(2)
         print("File url is", fileurl)
 
         if fileurl is not None:
