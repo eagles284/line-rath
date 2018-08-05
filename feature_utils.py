@@ -91,6 +91,8 @@ def ssweb(url):
             driver.get(inputstring)
         elif inputstring.startswith("http://"):
             driver.get(inputstring)
+        else:
+            driver.get("http://" + inputstring)
 
         if url.startswith("/instagram"):
             driver.get('https://' + inputstring)
