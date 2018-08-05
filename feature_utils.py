@@ -55,7 +55,8 @@ def ssweb(url):
     rawinputstring = ""
 
     if url.startswith("/instagram"):
-        rawinputstring = url.replace("/instagram", "")
+        rawinputstring = "www.instagram.com/"
+        rawinputstring += url.replace("/instagram", "")
     if url.startswith("/screenshot"):
         rawinputstring = url.replace("/screenshot", "")
 
@@ -63,8 +64,8 @@ def ssweb(url):
 
     print(inputstring)
     print("http://"+inputstring)
-    print("http://instagram.com/"+inputstring)
-    
+    # print("http://instagram.com/"+inputstring)
+    # return
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--test-type")
@@ -79,6 +80,7 @@ def ssweb(url):
     webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
 
     driver.get('http://' + inputstring)
+
     driver.maximize_window()
     print("Getting screenshot")
     driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
@@ -87,7 +89,7 @@ def ssweb(url):
     print("Closing screenshot")
     return str(webFile)
 
-# ssweb("/screenshot google.com")
+# ssweb("/instagram aryadytm12")
 
 # ================
 # Grafik Persamaan

@@ -148,7 +148,7 @@ def webss(event):
                 preview_image_url=wFile
             ))
     elif msg.startswith("/instagram"):
-        wFile = feature_utils.ssweb("www.instagram.com/" + msg)
+        wFile = feature_utils.ssweb(msg)
         print("IMG File is:", wFile)
 
         time.sleep(2)
