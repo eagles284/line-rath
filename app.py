@@ -2,7 +2,7 @@
 import os
 from decouple import config
 from flask import (
-    Flask, request, abort
+    Flask, request, abort, render_template, url_for
 )
 from linebot.exceptions import InvalidSignatureError
 from linebot.models import (
@@ -13,8 +13,9 @@ from utility import (
 )
 import chatfeatures
 
-@app.route("/math.png")
-
+@app.route('/math', methods=['GET', 'POST'])
+def math(): 
+    return render_template('math.html')
 
 @app.route("/callback", methods=['POST'])
 def callback():

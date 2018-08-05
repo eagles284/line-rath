@@ -19,7 +19,7 @@
 #     # Plot the line
 
 #     x = [0, 6]
-#     y = [9, 0]
+#     y = [4, 0]
 
 #     plt.plot(x, y, color="red")
 #     plt.xlabel('x')
@@ -34,7 +34,7 @@
 #     # mx = [0, 1]
 #     # my = [yInt, yInt + m]
 #     # plt.plot(mx,my, color='red', lw=5)
-#     plt.savefig('math.png')
+#     plt.savefig('static/math.png')
 #     plt.show()
 
 

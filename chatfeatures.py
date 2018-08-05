@@ -133,8 +133,8 @@ def grafik(event):
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
-                original_content_url='https://trombosit.herokuapp.com/math.png',
-                preview_image_url='https://trombosit.herokuapp.com/math.png'
+                original_content_url='https://trombosit.herokuapp.com/static/math.png',
+                preview_image_url='https://trombosit.herokuapp.com/static/math.png'
             ))
 
 

@@ -22,8 +22,6 @@ def wikipedia_search(word):
         msg = '`{}` Tidak bisa menemukan kata yang dicari'.format(word)
     return msg
 
-print(wikipedia_search("kucing"))
-
 # ====================================
 # Google News
 # ====================================
