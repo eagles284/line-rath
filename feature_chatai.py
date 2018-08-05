@@ -13,17 +13,14 @@ bot = ChatBot(
     logic_adapters=[
         "chatterbot.logic.BestMatch"
     ])
-bot.set_trainer(ListTrainer)
-bot.train(responds)
+# bot.set_trainer(ListTrainer)
+# bot.train(responds)
 
-bot.set_trainer(ChatterBotCorpusTrainer)
-bot.train('chatterbot.corpus.indonesia')
+# bot.set_trainer(ChatterBotCorpusTrainer)
+# bot.train('chatterbot.corpus.indonesia')
 
 def chat(input):
     print("received message:", input)
     response = bot.get_response(input)
     print("sending message:", response)
     return response
-
-chatmess = "woi"
-print(chat(chatmess))
