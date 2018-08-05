@@ -46,20 +46,25 @@ realCurrentDate = ""
 # Screenshot Website
 # ==================
 def ssweb(url):
+
     global currentDate, realCurrentDate
     currentDate = str(datetime.datetime.now().time())
     datenow = currentDate.replace(":","")
     realCurrentDate = datenow
 
-    rawinputstring = url.replace(" ", "")
+    rawinputstring = ""
 
-    inputstring = str("")
-    if rawinputstring.startswith("/instagram"):
-        inputstring = rawinputstring.replace("/instagram", "")
-    elif rawinputstring.startswith("/screenshot"):
-        inputstring = rawinputstring.replace("/screenshot", "")
+    if url.startswith("/instagram"):
+        rawinputstring = url.replace("/instagram", "")
+    if url.startswith("/screenshot"):
+        rawinputstring = url.replace("/screenshot", "")
+
+    inputstring = rawinputstring.replace(" ", "")
+
     print(inputstring)
-
+    print("http://"+inputstring)
+    print("http://instagram.com/"+inputstring)
+    
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--test-type")
@@ -81,7 +86,8 @@ def ssweb(url):
     driver.close()
     print("Closing screenshot")
     return str(webFile)
-# ssweb("/webss www.google.com")
+
+# ssweb("/screenshot google.com")
 
 # ================
 # Grafik Persamaan
