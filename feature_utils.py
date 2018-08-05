@@ -56,8 +56,10 @@ def ssweb(url):
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--test-type")
-    options.binary_location = "/usr/bin/chromium"
-    driver = webdriver.Chrome(chrome_options=options)
+    options.add_argument('--disable-gpu')
+    options.add_argument('--no-sandbox')
+    options.binary_location = "/app/.apt/usr/bin/google-chrome"
+    driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     
     driver.get('https://python.org')
     driver.save_screenshot("/static/screenshot.png")
