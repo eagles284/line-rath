@@ -74,10 +74,10 @@ def ssweb(url):
     # options.add_argument('disable-infobars')
     options.add_argument('--no-sandbox')
     options.add_argument('--start-maximized')
-    options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--window-size=1366,768')
     if url.startswith("/instagram"):
-        options.add_argument('--window-size=480,720')
+        options.add_argument('--window-size=720,1280')
     # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
     options.binary_location = "/app/.apt/usr/bin/google-chrome"
 
@@ -85,7 +85,10 @@ def ssweb(url):
     ##
     webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
 
-    driver.get('http://' + inputstring)
+    if url.startswith("/instagram"):
+        driver.get('https://' + inputstring)
+    else:
+        driver.get('http://' + inputstring)
 
 
     # if url.startswith("/instagram"):
