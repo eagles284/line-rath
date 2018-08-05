@@ -133,6 +133,7 @@ def wiki(event):
 def grafik(event):
     msg = str(event.message.text)
     if msg.startswith("/grafik"):
+        msg.replace("/grafik", "")
 
         fileurl = feature_utils.plot(msg)
         time.sleep(2)
