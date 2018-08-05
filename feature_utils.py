@@ -62,8 +62,8 @@ def ssweb(url):
     driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
     
     driver.get('https://python.org')
-    driver.save_screenshot("/static/screenshot.png")
-    
+    driver.save_screenshot("static/screenshot.png")
+    ##
     driver.close()
 
 ssweb("/webss www.google.com")
