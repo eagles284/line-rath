@@ -115,7 +115,7 @@ def ssweb(url):
         print(Exception)
         return
 
-# ssweb("/instagram aryadytm12")
+# ssweb("/screenshot https://www.google.com")
 
 # ================
 # Grafik Persamaan

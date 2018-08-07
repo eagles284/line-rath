@@ -18,14 +18,14 @@ import contextlib
 
 
 aimode = False
-helptext = """====== TROMBOSIT V1.5 ======
-||  /help
-||  /creator
-||  /aimode (on/off)
+helptext = """===== TROMBOSIT V1.51 ======
+||  /help /trombosit
+||  /pembuat
+||  /chatmode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
-||   -> contoh: 1x + 1y = 1
+||  --> contoh: 1x + 1y = 1
 ||  /screenshot (web url)
 ||  /instagram (ig username)
 ==========================="""
@@ -69,36 +69,32 @@ def textreply(event, message):
 #             TextSendMessage(text=send))
 #     return
 
-# /help
+# /help /trombosit
 def help(event):
     msg = event.message.text
-    if msg == "/help":
+    if msg == "/help" or msg == "/trombosit":
         textreply(event, helptext)
     return
 
 
-# /creator
+# /pembuat
 def creator(event):
     msg = event.message.text
-    if msg == "/creator":
-        textreply(event, "A man who hates Mandarin very much. I hope you know what I mean :)")
+    if msg == "/pembuat":
+        textreply(event, "Seseorang yang sangat membenci Bahasa Mandarin :)")
     return
 
-# /aimode off
-def aimodeoff(event):
-    msg = event.message.text
-    if msg == "/aimode off":
-        global aimode
-        aimode = False
-        textreply(event, "AI mode off")
-
-# /aimode on       
+# /chatmode on/off     
 def aimodeon(event):
     msg = event.message.text
-    if msg == "/aimode on":
+    if msg == "/chatmode on":
         global aimode
         aimode = True
-        textreply(event, "AI mode on")
+        textreply(event, "Chatting mode on")
+    elif msg == "/chatmode off":
+        global aimode
+        aimode = False
+        textreply(event, "Chatting mode off")
 
 def reply(msgserv):
     return msgserv
