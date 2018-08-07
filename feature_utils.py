@@ -13,6 +13,11 @@ import matplotlib
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
+# message_content = line_bot_api.get_message_content(message_id)
+
+# with open(file_path, 'wb') as fd:
+#     for chunk in message_content.iter_content():
+#         fd.write(chunk)
 
 # ====================================
 # Wikipedia Search
@@ -69,14 +74,14 @@ def ssweb(url):
     # return
     try:
         options = webdriver.ChromeOptions()
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument("--test-type")
+        # options.add_argument('--ignore-certificate-errors')
+        # options.add_argument("--test-type")
         options.add_argument("--headless")
         options.add_argument('--disable-gpu')
         # options.add_argument('disable-infobars')
         options.add_argument('--no-sandbox')
         options.add_argument('--start-maximized')
-        options.add_argument('--disable-dev-shm-usage')
+        # options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--window-size=1366,768')
         if url.startswith("/instagram"):
             options.add_argument('--window-size=480,720')
@@ -139,8 +144,16 @@ def plot(persamaan):
             removey = removex[1].split("y")
             removee = removey[1].split("=")
 
-            xraw = int(removex[0])
-            yraw = int(removey[0])
+            if removex[0] is None:
+                xraw = 1
+            else:
+                xraw = int(removex[0])
+            
+            if removey[0] is None:
+                yraw = 1
+            else:
+                yraw = int(removey[0])
+
             e = int(removee[1])
 
             x = e/xraw
