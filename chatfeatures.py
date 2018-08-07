@@ -135,9 +135,9 @@ def wiki(event):
 # /instagram
 def webss(event):
     msg = str(event.message.text)
-    wFile = feature_utils.ssweb(msg)
 
     if msg.startswith("/screenshot") or msg.startswith("/instagram"):
+        wFile = feature_utils.ssweb(msg)
         if wFile is not None:
          
             print("IMG File is:", wFile)
