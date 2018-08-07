@@ -69,7 +69,6 @@ def ssweb(url):
 
 
     print(inputstring)
-    print("http://"+inputstring)
     # print("http://instagram.com/"+inputstring)
     # return
     try:
@@ -92,18 +91,22 @@ def ssweb(url):
         ##
         webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
 
-        if inputstring.startswith("https://"):
-            driver.get(inputstring)
-        elif inputstring.startswith("http://"):
-            driver.get(inputstring)
-        else:
-            driver.get("http://" + inputstring)
 
-        if url.startswith("/instagram"):
+        if not url.startswith("/instagram"):
+            print("Not Instagram input:", inputstring)
+            if inputstring.startswith("https://"):
+                print("HTTPS Input:", inputstring)
+                driver.get(inputstring)
+            elif inputstring.startswith("http://"):
+                print("HTTP Input:", inputstring)
+                driver.get(inputstring)
+            else:
+                print("Not Specified Input: http://" + inputstring)
+                driver.get("http://" + inputstring)
+
+        elif url.startswith("/instagram"):
+            print("Instagram Input:", inputstring)
             driver.get('https://' + inputstring)
-        else:
-            driver.get('http://' + inputstring)
-
 
         # if url.startswith("/instagram"):
             # driver.find_element_by_class_name('.Szr5J').click()
@@ -116,7 +119,7 @@ def ssweb(url):
         driver.close()
         print("Closing screenshot")
         return str(webFile)
-        
+
     except Exception as e:
         print("Error :", e)
         return None

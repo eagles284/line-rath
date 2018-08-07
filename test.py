@@ -1,84 +1,73 @@
-# # from matplotlib import pyplot as plt
-# import datetime
+# def ssweb(url):
 
-# # ================
-# # Grafik Persamaan
-# # ================
+#     global currentDate, realCurrentDate
+#     # currentDate = str(datetime.datetime.now().time())
+#     # datenow = currentDate.replace(":","")
+#     # realCurrentDate = datenow
 
-# # misal input: 3x+4y=12
-# def plot(persamaan):
+#     rawinputstring = ""
 
-#     rawinputstring = persamaan.replace(" ", "")
-#     inputstring = rawinputstring.replace("/grafik", "")
+#     if url.startswith("/instagram"):
+#         rawinputstring = "www.instagram.com/"
+#         rawinputstring += url.replace("/instagram", "")
+#     if url.startswith("/screenshot"):
+#         rawinputstring = url.replace("/screenshot", "")
+
+#     inputstring = rawinputstring.replace(" ", "")
+
+
 #     print(inputstring)
+#     # print("http://"+inputstring)
+#     # print("http://instagram.com/"+inputstring)
+#     # return
+#     try:
+#         # options = webdriver.ChromeOptions()
+#         # # options.add_argument('--ignore-certificate-errors')
+#         # # options.add_argument("--test-type")
+#         # options.add_argument("--headless")
+#         # options.add_argument('--disable-gpu')
+#         # # options.add_argument('disable-infobars')
+#         # options.add_argument('--no-sandbox')
+#         # options.add_argument('--start-maximized')
+#         # # options.add_argument('--disable-dev-shm-usage')
+#         # options.add_argument('--window-size=1366,768')
+#         # if url.startswith("/instagram"):
+#         #     options.add_argument('--window-size=480,720')
+#         # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
+#         # options.binary_location = "/app/.apt/usr/bin/google-chrome"
 
-#     if "x" in inputstring and "y" in inputstring and "=" in inputstring and "/" not in inputstring and "*" not in inputstring:
+#         # driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
+#         ##
+#         # webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+
+#         if inputstring.startswith("https://"):
+#             print("HTTPS Input:", inputstring)
+#         elif inputstring.startswith("http://"):
+#             print("HTTP Input:",inputstring)
+#         els:
+#             print("No HTTP input: "+ "http://" + inputstring)
+
+#         if url.startswith("/instagram"):
+#             print("Instagram input:", 'https://' + inputstring)
+
+
+#         # if url.startswith("/instagram"):
+#             # driver.find_element_by_class_name('.Szr5J').click()
+#             # driver.find_element_by_css_selector('.Szr5J').click()
+            
+
+#         # print("Getting screenshot")
+#         # driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
+#         # driver.save_screenshot("static/ss.png")
+#         # driver.close()
+#         # print("Closing screenshot")
+#         # return str(webFile)
         
-#         try:
-#             removex = inputstring.replace(" ", "").split("x")
-#             removey = removex[1].split("y")
-#             removee = removey[1].split("=")
+#     except Exception as e:
+#         print("Error :", e)
+#         return None
 
-#             xraw = int(removex[0])
-#             yraw = int(removey[0])
-#             e = int(removee[1])
-
-#             x = e/xraw
-#             y = e/yraw
-#             print("x:",xraw,"y:",yraw,"e:",e)
-#             print("x:",x,"y:",y,"e:",e)
-
-#             # Create a dataframe with an x column containing values from -10 to 10
-#             # df = pd.DataFrame({'x': range(-10, 11)})
-
-#             # Define slope and y-intercept
-#             # m = 1.5
-#             # yInt = -2
-
-#             # Add a y column by applying the slope-intercept equation to x
-#             # df['y'] = m*df['x'] + yInt
-#             # print(df)
-
-#             # Plot the line
-
-#             xi = [0, x]
-#             yi = [y, 0]
-
-#             plt.plot(xi, yi, color="red")
-#             # plt.xlabel('x')
-#             # plt.ylabel('y')
-#             plt.axhline()
-#             plt.axvline()    
-#             plt.grid()
-
-#             strx = str(x)
-#             stry = str(y)
-
-#             # label the y and x - intercept
-#             plt.axvspan(x, y, facecolor='g', alpha=0)
-#             plt.annotate(strx[0:5],(x,0-0.25), color='green')
-#             plt.annotate(stry[0:5],(0+0.25,y), color='green')
-
-#             # plot the slope from the y-intercept for 1x
-#             # mx = [0, 1]
-#             # my = [yInt, yInt + m]
-#             # plt.plot(mx,my, color='red', lw=5)
-
-#             datenowraw = str(datetime.datetime.now().time())
-#             datenow = datenowraw.replace(":","")
-
-#             plt.savefig('static/' + datenow + ".png")
-
-#             fileurl = "https://trombosit.herokuapp.com/static/" + datenow + ".png"
-
-#             # plt.show()  # REMOVE THIS ON EXECUTE!!!
-#             return fileurl
-#         except IndexError:
-#             return
-#         except Exception:
-#             return
-#     else:
-#             print("Format error")
-#             return
-
-# print(plot("/grafik 3x+1y = 3"))
+# ssweb("/screenshot http://www.google.com")
+# ssweb("/screenshot https://games.gemscool.com")
+# ssweb("/screenshot www.gymoogle.com")
+# ssweb("/instagram aryadytm12")
