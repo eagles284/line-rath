@@ -137,9 +137,9 @@ def webss(event):
     msg = str(event.message.text)
     wFile = feature_utils.ssweb(msg)
 
-    if wFile is not None:
-        if msg.startswith("/screenshot"):
-            
+    if msg.startswith("/screenshot") or msg.startswith("/instagram"):
+        if wFile is not None:
+         
             print("IMG File is:", wFile)
 
             time.sleep(2)
@@ -150,20 +150,10 @@ def webss(event):
                     original_content_url=wFile,
                     preview_image_url=wFile
                 ))
-        elif msg.startswith("/instagram"):
             wFile = feature_utils.ssweb(msg)
-            print("IMG File is:", wFile)
-
-            time.sleep(2)
-
-            line_bot_api.reply_message(
-                event.reply_token,
-                ImageSendMessage(
-                    original_content_url=wFile,
-                    preview_image_url=wFile
-                ))
-    else:
-        textreply(event, "Maaf, saat ini screenshot sedang error")
+            
+        else:
+            textreply(event, "Maaf, saat ini screenshot sedang error")
 
 
 # /grafik
