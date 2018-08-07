@@ -162,8 +162,18 @@ def plot(persamaan):
 
             x = e/xraw
             y = e/yraw
+
+            stringx = str(x)
+            stringy = str(y)
+
+            if '.0' in stringx:
+                stringx = stringx.replace(".0","")
+            if '.0' in stringy:
+                stringy = stringy.replace(".0","")
+
             print("x:",xraw,"y:",yraw,"e:",e)
             print("x:",x,"y:",y,"e:",e)
+            print("label X:",stringx,"label Y:",stringy)
 
             # Create a dataframe with an x column containing values from -10 to 10
             # df = pd.DataFrame({'x': range(-10, 11)})
@@ -193,8 +203,8 @@ def plot(persamaan):
 
             # label the y and x - intercept
             plt.axvspan(x, y, facecolor='g', alpha=0)
-            plt.annotate(strx[0:5],(x,0), color='green')
-            plt.annotate(stry[0:5],(0,y), color='green')
+            plt.annotate(strx[0:15],(x,0), color='green')
+            plt.annotate(stry[0:15],(0,y), color='green')
             print("PLOT SUCCESS")
             # plot the slope from the y-intercept for 1x
             # mx = [0, 1]
@@ -221,5 +231,5 @@ def plot(persamaan):
             print("Format error")
             return
 
-# plot("-x+10y=20")
+# plot("-3x+3y=10")
 # plot("5x+4y=20")
