@@ -113,7 +113,7 @@ def ssweb(url):
         return str(webFile)
     except Exception:
         print(Exception)
-        return
+        return None
 
 # ssweb("/screenshot https://www.google.com")
 
@@ -199,7 +199,7 @@ def plot(persamaan):
             # plt.show()  # REMOVE THIS ON EXECUTE!!!
             
         except IndexError:
-            return IndexError
+            return
     else:
             print("Format error")
             return

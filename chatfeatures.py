@@ -25,9 +25,11 @@ helptext = """===== TROMBOSIT V1.51 ======
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
-||  --> contoh: 1x + 1y = 1
 ||  /screenshot (web url)
 ||  /instagram (ig username)
+||
+||  *Tip: masukkan perintah diawali
+||   garis miring (/) dan huruf kecil
 ==========================="""
 
 
@@ -133,31 +135,35 @@ def wiki(event):
 # /instagram
 def webss(event):
     msg = str(event.message.text)
-    if msg.startswith("/screenshot"):
+    wFile = feature_utils.ssweb(msg)
 
-        wFile = feature_utils.ssweb(msg)
-        print("IMG File is:", wFile)
+    if wFile is not None:
+        if msg.startswith("/screenshot"):
+            
+            print("IMG File is:", wFile)
 
-        time.sleep(2)
-        
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(
-                original_content_url=wFile,
-                preview_image_url=wFile
-            ))
-    elif msg.startswith("/instagram"):
-        wFile = feature_utils.ssweb(msg)
-        print("IMG File is:", wFile)
+            time.sleep(2)
+            
+            line_bot_api.reply_message(
+                event.reply_token,
+                ImageSendMessage(
+                    original_content_url=wFile,
+                    preview_image_url=wFile
+                ))
+        elif msg.startswith("/instagram"):
+            wFile = feature_utils.ssweb(msg)
+            print("IMG File is:", wFile)
 
-        time.sleep(2)
+            time.sleep(2)
 
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(
-                original_content_url=wFile,
-                preview_image_url=wFile
-            ))
+            line_bot_api.reply_message(
+                event.reply_token,
+                ImageSendMessage(
+                    original_content_url=wFile,
+                    preview_image_url=wFile
+                ))
+    else:
+        textreply(event, "Maaf, saat ini screenshot sedang error")
 
 
 # /grafik
@@ -188,7 +194,7 @@ def grafik(event):
                         preview_image_url=fileurl
                     ))
             else:
-                textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 3x + 2y = 6")
+                textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 1x + 2y = 6")
     else:
         if msg.startswith("/grafik"):
             textreply(event, "Lagi ujian cuk, anda tercyduk!!")
