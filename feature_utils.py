@@ -144,13 +144,17 @@ def plot(persamaan):
             removey = removex[1].split("y")
             removee = removey[1].split("=")
 
-            if removex[0] is None:
-                xraw = 1
+            if removex[0] == '' or removex[0] == '-':
+                xraw = int(1)
+                if removex[0] == '-':
+                    xraw = int(-1)
             else:
                 xraw = int(removex[0])
             
-            if removey[0] is None:
-                yraw = 1
+            if removey[0] == '+' or removey[0] == '-' or removey[0] == '':
+                yraw = int(1)
+                if removey[0] == '-':
+                    yraw = int(-1)
             else:
                 yraw = int(removey[0])
 
@@ -217,5 +221,5 @@ def plot(persamaan):
             print("Format error")
             return
 
-# plot("3x+2y=6")
+# plot("-x+10y=20")
 # plot("5x+4y=20")
