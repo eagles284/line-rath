@@ -18,19 +18,20 @@ import contextlib
 
 
 aimode = False
-helptext = """===== TROMBOSIT V1.51 ======
+helptext = """===== TROMBOSIT V1.52 =========
 ||  /help /trombosit
 ||  /pembuat
+||  /jadwal *Mapel XI IPS 2
 ||  /chatmode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
 ||  /screenshot (web url)
-||  /instagram (ig username)
+||  /instagram (username)
 ||
 ||  *Tip: masukkan perintah diawali
 ||   garis miring (/) dan huruf kecil
-==========================="""
+=============================="""
 
 
 def textreply(event, message):
@@ -86,6 +87,13 @@ def creator(event):
     msg = event.message.text
     if msg == "/pembuat":
         textreply(event, "Seseorang yang sangat membenci Bahasa Mandarin :)")
+    elif msg == "/jadwal":
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(
+                original_content_url='https://trombosit.herokuapp.com/static/jadwal.jpg',
+                preview_image_url='https://trombosit.herokuapp.com/static/jadwal.jpg'
+            ))
     return
 
 # /chatmode on/off     
@@ -184,7 +192,7 @@ def grafik(event):
                         preview_image_url=fileurl
                     ))
             else:
-                textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n contoh: /grafik 1x + 2y = 6")
+                textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n Contoh: \n /grafik 1x + 2y = 6")
     else:
         if msg.startswith("/grafik"):
             textreply(event, "Lagi ujian cuk, anda tercyduk!!")

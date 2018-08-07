@@ -93,7 +93,7 @@ def ssweb(url):
 
 
         if not url.startswith("/instagram"):
-            print("Not Instagram input:", inputstring)
+            print("Screenshot input:", inputstring)
             if inputstring.startswith("https://"):
                 print("HTTPS Input:", inputstring)
                 driver.get(inputstring)
@@ -105,7 +105,7 @@ def ssweb(url):
                 driver.get("http://" + inputstring)
 
         elif url.startswith("/instagram"):
-            print("Instagram Input:", inputstring)
+            print("Instagram Input: https://" + inputstring)
             driver.get('https://' + inputstring)
 
         # if url.startswith("/instagram"):
