@@ -72,7 +72,9 @@ def textreply(event, message):
 # /help /trombosit
 def help(event):
     msg = event.message.text
-    if msg == "/help" or msg == "/trombosit":
+    if msg == "/help":
+        textreply(event, helptext)
+    elif msg == "/trombosit":
         textreply(event, helptext)
     return
 
@@ -86,13 +88,14 @@ def creator(event):
 
 # /chatmode on/off     
 def aimodeon(event):
+    global aimode
     msg = event.message.text
     if msg == "/chatmode on":
-        global aimode
+        
         aimode = True
         textreply(event, "Chatting mode on")
     elif msg == "/chatmode off":
-        global aimode
+        
         aimode = False
         textreply(event, "Chatting mode off")
 
