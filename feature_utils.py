@@ -116,8 +116,9 @@ def ssweb(url):
         driver.close()
         print("Closing screenshot")
         return str(webFile)
-    except Exception:
-        print(Exception)
+        
+    except Exception as e:
+        print("Error :", e)
         return None
 
 # ssweb("/screenshot https://www.google.com")
@@ -198,13 +199,13 @@ def plot(persamaan):
             plt.axvline()    
             plt.grid()
             print("Going to plot...2")
-            strx = str(x)
-            stry = str(y)
+            # strx = str(x)
+            # stry = str(y)
 
             # label the y and x - intercept
             plt.axvspan(x, y, facecolor='g', alpha=0)
-            plt.annotate(strx[0:15],(x,0), color='green')
-            plt.annotate(stry[0:15],(0,y), color='green')
+            plt.annotate(stringx[0:15],(x,0), color='green')
+            plt.annotate(stringy[0:15],(0,y), color='green')
             print("PLOT SUCCESS")
             # plot the slope from the y-intercept for 1x
             # mx = [0, 1]
