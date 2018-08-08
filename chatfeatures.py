@@ -154,12 +154,7 @@ def webss(event):
 
             time.sleep(2)
             
-            line_bot_api.reply_message(
-                event.reply_token,
-                ImageSendMessage(
-                    original_content_url=wFile,
-                    preview_image_url=wFile
-                ))
+            imgreply(event, wFile)
             
         else:
             textreply(event, "Screenshot gagal, cobalah untuk screenshot ulang.")
@@ -185,12 +180,7 @@ def grafik(event):
             print("File url is", fileurl)
 
             if fileurl is not None:
-                line_bot_api.reply_message(
-                    event.reply_token,
-                    ImageSendMessage(
-                        original_content_url=fileurl,
-                        preview_image_url=fileurl
-                    ))
+                imgreply(event, fileurl)
             else:
                 textreply(event, "Tolong masukkan dengan format: \n /grafik ax + by = c \n Contoh: \n /grafik 1x + 2y = 6")
     else:
