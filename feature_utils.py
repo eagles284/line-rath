@@ -116,7 +116,6 @@ def ssweb(url):
             # driver.find_element_by_class_name('.Szr5J').click()
             # driver.find_element_by_css_selector('.Szr5J').click()
             
-
         print("Getting screenshot")
         driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
         driver.save_screenshot("static/ss.png")
