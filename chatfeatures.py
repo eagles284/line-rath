@@ -15,12 +15,13 @@ import requests
 import datetime
 import time
 import contextlib
+import public_vars
 
 
 aimode = False
-helptext = """===== TROMBOSIT V1.52 =========
+helptext = """===== TROMBOSIT V1.53 =========
 ||  /help /trombosit
-||  /pembuat
+||  /tentang
 ||  /jadwal *Mapel XI IPS 2
 ||  /chatmode (on/off)
 ||  /love (orang1, orang2)
@@ -29,8 +30,8 @@ helptext = """===== TROMBOSIT V1.52 =========
 ||  /screenshot (web url)
 ||  /instagram (username)
 ||
-||  *Tip: masukkan perintah diawali
-||   garis miring (/) dan huruf kecil
+||  Tip: masukkan perintah diawali
+||  garis miring (/) dan huruf kecil
 =============================="""
 
 
@@ -85,17 +86,17 @@ def help(event):
     if msg == "/help":
         textreply(event, helptext)
     elif msg == "/trombosit":
-        textreply(event, helptext)
+        textreply(event, 'Trombosit AI (Artificial Intelligence) adalah Kecerdasan Buatan berbasis LINE yang dibuat oleh seseorang dari kelas IPS. \n \n' + helptext)
     return
 
 
-# /pembuat
+# /tentang
 def creator(event):
     msg = event.message.text
-    if msg == "/pembuat":
-        textreply(event, "Seseorang yang sangat membenci Bahasa Mandarin :)")
+    if msg == "/tentang":
+        textreply(event, "Trombosit AI (Artificial Intelligence) adalah Kecerdasan Buatan berbasis LINE yang dibuat oleh seseorang dari kelas IPS.")
     elif msg == "/jadwal":
-        imgreply(event, 'https://trombosit.herokuapp.com/static/jadwal.jpg')
+        imgreply(event, public_vars.HOST_PUBLIC_URL + '/static/jadwal.jpg')
     return
 
 # /chatmode on/off     

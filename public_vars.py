@@ -1,0 +1,1 @@
+HOST_PUBLIC_URL = 'https://trombosit.herokuapp.com'

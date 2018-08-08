@@ -9,6 +9,7 @@ import contextlib
 import selenium.webdriver as webdriver
 from selenium.webdriver.chrome.options import Options
 import os
+import public_vars
 import matplotlib
 matplotlib.use('agg')
 from matplotlib import pyplot as plt
@@ -93,7 +94,7 @@ def ssweb(url):
 
         driver = webdriver.Chrome(executable_path="/app/.chromedriver/bin/chromedriver", chrome_options=options)
         ##
-        webFile = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+        webFile = public_vars.HOST_PUBLIC_URL + "/static/" + realCurrentDate + ".png"
 
 
         if not url.startswith("/instagram"):
@@ -225,7 +226,7 @@ def plot(persamaan):
             print("Create file success")
             print("Generating URL")
 
-            fileurl = "https://trombosit.herokuapp.com/static/" + realCurrentDate + ".png"
+            fileurl = public_vars.HOST_PUBLIC_URL + "/static/" + realCurrentDate + ".png"
 
             print("fileurl:", fileurl)
 
