@@ -126,7 +126,7 @@ def ssweb(url):
 
     except Exception as e:
         print("Error :", e, "Retrying screenshot...")
-        ssweb(tempUrl)
+        # ssweb(tempUrl)
         return None
 
 # ssweb("/screenshot https://www.google.com")

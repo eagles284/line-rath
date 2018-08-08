@@ -158,10 +158,17 @@ def webss(event):
                     original_content_url=wFile,
                     preview_image_url=wFile
                 ))
-            wFile = feature_utils.ssweb(msg)
             
         else:
             textreply(event, "Screenshot gagal, mencoba screenshot ulang...")
+            time.sleep(2)
+            wFileNew = feature_utils.ssweb(msg)
+            line_bot_api.reply_message(
+                event.reply_token,
+                ImageSendMessage(
+                    original_content_url=wFileNew,
+                    preview_image_url=wFileNew
+                ))
 
 
 # /grafik
