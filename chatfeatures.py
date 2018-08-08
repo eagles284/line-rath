@@ -39,6 +39,13 @@ def textreply(event, message):
         event.reply_token,
         TextSendMessage(text=message))
 
+def imgreply(event, imgurl):
+    line_bot_api.reply_message(
+        event.reply_token,
+        ImageSendMessage(
+            original_content_url=imgurl,
+            preview_image_url=imgurl
+        ))
 # def _news_carousel(entry):
 #     summary_soup = BeautifulSoup(entry.summary, "html.parser")
 #     # summary has img tag which has no src attribute like:
@@ -88,12 +95,7 @@ def creator(event):
     if msg == "/pembuat":
         textreply(event, "Seseorang yang sangat membenci Bahasa Mandarin :)")
     elif msg == "/jadwal":
-        line_bot_api.reply_message(
-            event.reply_token,
-            ImageSendMessage(
-                original_content_url='https://trombosit.herokuapp.com/static/jadwal.jpg',
-                preview_image_url='https://trombosit.herokuapp.com/static/jadwal.jpg'
-            ))
+        imgreply(event, 'https://trombosit.herokuapp.com/static/jadwal.jpg')
     return
 
 # /chatmode on/off     
