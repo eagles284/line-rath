@@ -161,7 +161,7 @@ def webss(event):
             wFile = feature_utils.ssweb(msg)
             
         else:
-            textreply(event, "Maaf, saat ini screenshot sedang error")
+            textreply(event, "Screenshot gagal, mencoba screenshot ulang...")
 
 
 # /grafik

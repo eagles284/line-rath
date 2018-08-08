@@ -50,9 +50,13 @@ realCurrentDate = ""
 # ==================
 # Screenshot Website
 # ==================
+
+tempUrl = ""
+
 def ssweb(url):
 
-    global currentDate, realCurrentDate
+    global currentDate, realCurrentDate, tempUrl
+    tempUrl = url
     currentDate = str(datetime.datetime.now().time())
     datenow = currentDate.replace(":","")
     realCurrentDate = datenow
@@ -121,7 +125,8 @@ def ssweb(url):
         return str(webFile)
 
     except Exception as e:
-        print("Error :", e)
+        print("Error :", e, "Retrying screenshot...")
+        ssweb(tempUrl)
         return None
 
 # ssweb("/screenshot https://www.google.com")
