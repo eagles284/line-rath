@@ -12,6 +12,10 @@ from utility import (
     handler, app, line_bot_api
 )
 import chatfeatures
+from OpenSSL import SSL
+from flask_sslify import SSLify
+
+# sslify = SSLify(app)
 
 @app.route('/math', methods=['GET', 'POST'])
 def math(): 
@@ -43,6 +47,8 @@ aifeatures = [
     chatfeatures.wiki,
     chatfeatures.grafik,
     chatfeatures.webss,
+    chatfeatures.absen,
+    chatfeatures.checkuserid,
     chatfeatures.aimodeon,
     chatfeatures.aireply
 ]
@@ -58,4 +64,5 @@ def handle_text_message(event):
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    context = ('/etc/letsencrypt/csr/0002_csr-certbot.pem', '/etc/letsencrypt/keys/0002_key-certbot.pem')
+    app.run(host='0.0.0.0', port=port, threaded=True, debug=True)

@@ -1,0 +1,467 @@
+1534084913939	geckodriver	INFO	geckodriver 0.21.0
+1534084913970	geckodriver	INFO	Listening on 127.0.0.1:40229
+1534084915149	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.C2g7rZZnn93i"
+1534084921358	Marionette	INFO	Listening on port 2828
+1534084991934	geckodriver	INFO	geckodriver 0.21.0
+1534084991964	geckodriver	INFO	Listening on 127.0.0.1:55017
+1534084993059	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.uyqFw3fISuVW"
+1534084998174	Marionette	INFO	Listening on port 2828
+1534085049194	geckodriver	INFO	geckodriver 0.21.0
+1534085049225	geckodriver	INFO	Listening on 127.0.0.1:33593
+1534085050387	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.06vDUCljqjkB"
+1534085054836	Marionette	INFO	Listening on port 2828
+[Child 519] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 519] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534085165180	geckodriver	INFO	geckodriver 0.19.1
+1534085165202	geckodriver	INFO	Listening on 127.0.0.1:35629
+1534085166820	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.XrnipTi7p2vJ"
+1534085171734	Marionette	INFO	Listening on port 2828
+1534085616596	geckodriver	INFO	geckodriver 0.19.1
+1534085616617	geckodriver	INFO	Listening on 127.0.0.1:40211
+1534085618234	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "--headless" "-headless" "-profile" "/tmp/rust_mozprofile.vpYfM1zxZ2cn"
+1534085623374	Marionette	INFO	Listening on port 2828
+1534085828034	geckodriver	INFO	Listening on 127.0.0.1:34997
+1534085829064	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.HE4OMwAolaCC
+1534085829076	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["--headless", "-headless"]
+1534085829092	geckodriver::marionette	INFO	Connecting to Marionette on localhost:46649
+1534085832838	Marionette	INFO	Listening on port 46649
+1534085834554	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534085845982	Marionette	INFO	New connections will no longer be accepted
+[Child 1582] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1582] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534085946781	geckodriver	INFO	Listening on 127.0.0.1:50185
+1534085947798	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.X15fuHxgYIGY
+1534085947811	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["--headless"]
+1534085947828	geckodriver::marionette	INFO	Connecting to Marionette on localhost:45871
+1534085951704	Marionette	INFO	Listening on port 45871
+1534085953560	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534085962542	Marionette	INFO	New connections will no longer be accepted
+[Child 1720] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1720] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+1534085998062	geckodriver	INFO	Listening on 127.0.0.1:59239
+1534085999036	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.COXdRUaUG9WY
+1534085999048	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["--headless"]
+1534085999065	geckodriver::marionette	INFO	Connecting to Marionette on localhost:41129
+1534086002728	Marionette	INFO	Listening on port 41129
+1534086004470	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534086017424	Marionette	INFO	New connections will no longer be accepted
+[Child 1845] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 1845] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534086183701	geckodriver	INFO	Listening on 127.0.0.1:43949
+1534086184688	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.U4ImrStWvZRe
+1534086184707	geckodriver::marionette	INFO	Starting browser usr/bin/firefox with args ["--headless", "-headless", "--disable-gpu", "--no-sandbox", "-window-size=1366,768", "-headless"]
+1534086204973	geckodriver	INFO	Listening on 127.0.0.1:45817
+1534086205969	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.zFUMN0b4IGea
+1534086205974	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["--headless", "-headless", "--disable-gpu", "--no-sandbox", "-window-size=1366,768", "-headless"]
+1534086205986	geckodriver::marionette	INFO	Connecting to Marionette on localhost:41097
+1534086209476	Marionette	INFO	Listening on port 41097
+1534086210706	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534086220174	Marionette	INFO	New connections will no longer be accepted
+[Child 2001] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 2001] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534088309983	geckodriver	INFO	Listening on 127.0.0.1:43645
+1534088310858	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.GY4mL7RKOH5g
+1534088310871	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768", "-window-size=480,720"]
+1534088310888	geckodriver::marionette	INFO	Connecting to Marionette on localhost:42919
+1534088316560	Marionette	INFO	Listening on port 42919
+1534088318032	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534088334544	Marionette	INFO	New connections will no longer be accepted
+[Child 3517] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 3517] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 3517] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534088416942	geckodriver	INFO	Listening on 127.0.0.1:59375
+1534088417909	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.H56KT56tmdNa
+1534088417922	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768", "-window-size=480,720"]
+1534088417938	geckodriver::marionette	INFO	Connecting to Marionette on localhost:43353
+1534088421518	Marionette	INFO	Listening on port 43353
+1534088422968	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534088443236	Marionette	INFO	New connections will no longer be accepted
+[Child 3702] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 3702] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 3702] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534088585117	geckodriver	INFO	Listening on 127.0.0.1:46965
+1534088586127	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.rd55kGhqm1q8
+1534088586140	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768", "-window-size=480,720"]
+1534088586158	geckodriver::marionette	INFO	Connecting to Marionette on localhost:45651
+1534088590842	Marionette	INFO	Listening on port 45651
+1534088592768	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534088621869	geckodriver	INFO	Listening on 127.0.0.1:46627
+1534088622851	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.yZi6rggSHlCr
+1534088622864	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768", "-window-size=480,720"]
+1534088622908	geckodriver::marionette	INFO	Connecting to Marionette on localhost:41439
+1534088626944	Marionette	INFO	Listening on port 41439
+1534088628742	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 3826] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 3826] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+[Child 3946] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 3946] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+1534088810388	geckodriver	INFO	Listening on 127.0.0.1:40529
+1534088811318	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.4wZcV6Nv9xwM
+1534088811331	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768"]
+1534088811350	geckodriver::marionette	INFO	Connecting to Marionette on localhost:38399
+1534088816432	Marionette	INFO	Listening on port 38399
+1534088819612	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+[Child 4628] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 4628] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534088963300	geckodriver	INFO	Listening on 127.0.0.1:40791
+1534088964296	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.noTqk15uohuW
+1534088964317	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768"]
+1534088964336	geckodriver::marionette	INFO	Connecting to Marionette on localhost:41433
+1534088968012	Marionette	INFO	Listening on port 41433
+1534088969454	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 4706] WARNING: waitpid failed pid:4778 errno:10: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/base/process_util_posix.cc, line 268
+1534089105846	geckodriver	INFO	Listening on 127.0.0.1:57753
+1534089106712	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.eqTXsaXKBHRS
+1534089106725	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless", "-window-size=1366,768"]
+1534089106744	geckodriver::marionette	INFO	Connecting to Marionette on localhost:35381
+1534089111982	Marionette	INFO	Listening on port 35381
+1534089114758	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534089128304	Marionette	INFO	New connections will no longer be accepted
+[Child 5247] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 5247] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 5247] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534089252909	geckodriver	INFO	Listening on 127.0.0.1:48593
+1534089253895	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.YUzYT2uMabEv
+1534089253911	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089253928	geckodriver::marionette	INFO	Connecting to Marionette on localhost:43681
+1534089257390	Marionette	INFO	Listening on port 43681
+1534089258558	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534089270738	Marionette	INFO	New connections will no longer be accepted
+[Child 5379] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 5379] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 5379] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534089632782	geckodriver	INFO	Listening on 127.0.0.1:41295
+1534089633775	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.4gqWT75qctzG
+1534089633789	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089633805	geckodriver::marionette	INFO	Connecting to Marionette on localhost:40599
+1534089637366	Marionette	INFO	Listening on port 40599
+1534089640130	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Parent 5483] WARNING: waitpid failed pid:5550 errno:10: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/base/process_util_posix.cc, line 268
+1534089689980	geckodriver	INFO	Listening on 127.0.0.1:51229
+1534089690961	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.G7SCoFG18MFc
+1534089690973	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089690990	geckodriver::marionette	INFO	Connecting to Marionette on localhost:38705
+1534089694624	Marionette	INFO	Listening on port 38705
+1534089696522	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534089742985	geckodriver	INFO	Listening on 127.0.0.1:40953
+1534089743983	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.6fuaOAvXjGYJ
+1534089743996	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089744013	geckodriver::marionette	INFO	Connecting to Marionette on localhost:42721
+1534089747526	Marionette	INFO	Listening on port 42721
+1534089749082	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534089763296	Marionette	INFO	New connections will no longer be accepted
+[Child 5800] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 5800] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 5800] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534089938026	geckodriver	INFO	Listening on 127.0.0.1:55537
+1534089939018	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.YwrXnRB9azx0
+1534089939038	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089939054	geckodriver::marionette	INFO	Connecting to Marionette on localhost:34333
+1534089942518	Marionette	INFO	Listening on port 34333
+1534089943672	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534089955740	Marionette	INFO	New connections will no longer be accepted
+[Child 5940] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 5940] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 5940] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534089980139	geckodriver	INFO	Listening on 127.0.0.1:56627
+1534089981134	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.dfLcJBCWnHqf
+1534089981147	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534089981164	geckodriver::marionette	INFO	Connecting to Marionette on localhost:43757
+1534089984588	Marionette	INFO	Listening on port 43757
+1534089985746	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-64122943-12, line 69: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=UA-64122943-12, line 69: unreachable code after return statement
+JavaScript error: http://block.uzone.id/desktop.php?time_campaign=081220182306, line 1027: ReferenceError: iframe is not defined
+JavaScript error: https://cdn4.uzone.id/assets/js/jquery.3.1.0.js, line 4: TypeError: a.indexOf is not a function
+[Child 6080] WARNING: pipe error (15): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xF20004,name=PVsync::Msg_Unobserve) Channel error: cannot send/recv
+
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: pipe error: Broken pipe: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 685
+[Child 6080] WARNING: FileDescriptorSet destroyed with unconsumed descriptors: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/file_descriptor_set_posix.cc, line 22
+[Child 6080] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 6080] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534090083347	geckodriver	INFO	Listening on 127.0.0.1:60515
+1534090084289	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.OVu4go37FIIo
+1534090084294	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534090084301	geckodriver::marionette	INFO	Connecting to Marionette on localhost:40767
+1534090088104	Marionette	INFO	Listening on port 40767
+1534090089642	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534090112774	Marionette	INFO	New connections will no longer be accepted
+[Child 6256] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 6256] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534128690542	geckodriver	INFO	Listening on 127.0.0.1:58021
+1534128691431	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.juKagAdq2chF
+1534128691443	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534128691462	geckodriver::marionette	INFO	Connecting to Marionette on localhost:41295
+1534128698998	Marionette	INFO	Listening on port 41295
+1534128702590	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534128713238	Marionette	INFO	New connections will no longer be accepted
+[Child 10712] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 10712] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+1534323890136	geckodriver	INFO	Listening on 127.0.0.1:48629
+1534323891004	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.IoeqICX41CSr
+1534323891016	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534323891035	geckodriver::marionette	INFO	Connecting to Marionette on localhost:40467
+1534323900070	Marionette	INFO	Listening on port 40467
+1534323903260	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534323943442	Marionette	INFO	New connections will no longer be accepted
+[Child 20011] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 20011] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 20011] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534324040234	geckodriver	INFO	Listening on 127.0.0.1:57455
+1534324041215	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.LKF1ytQcKsWM
+1534324041227	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534324041246	geckodriver::marionette	INFO	Connecting to Marionette on localhost:34819
+1534324044958	Marionette	INFO	Listening on port 34819
+1534324046154	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534324066410	Marionette	INFO	New connections will no longer be accepted
+[Child 20162] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 20162] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 20162] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534328059597	geckodriver	INFO	Listening on 127.0.0.1:60027
+1534328060576	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.cWLJ1ybZmFkY
+1534328060588	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534328060605	geckodriver::marionette	INFO	Connecting to Marionette on localhost:37529
+1534328064044	Marionette	INFO	Listening on port 37529
+1534328065198	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534328085072	Marionette	INFO	New connections will no longer be accepted
+[Child 20958] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 20958] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
