@@ -1,5 +1,0 @@
-1534074665522	geckodriver	INFO	geckodriver 0.21.0
-1534074665591	geckodriver	INFO	Listening on 127.0.0.1:36719
-1534074667862	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bP6j1PVOUQpJ"
-1534074675000	Marionette	INFO	Listening on port 2828
-[Parent 27561] WARNING: waitpid failed pid:27631 errno:10: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/base/process_util_posix.cc, line 268

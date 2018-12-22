@@ -14,6 +14,7 @@ import os
 import public_vars
 import sqlite3
 import chatfeatures
+from pyvirtualdisplay import Display
 from linebot.models import (
     TextSendMessage, TemplateSendMessage,
     CarouselColumn, CarouselTemplate, ConfirmTemplate,
@@ -65,7 +66,7 @@ realCurrentDate = ""
 
 tempUrl = ""
 
-def ssweb(url):
+def ssweb(url, file_name):
 
     global currentDate, realCurrentDate, tempUrl
     tempUrl = url
@@ -85,31 +86,17 @@ def ssweb(url):
 
 
     print(inputstring)
-    # print("http://instagram.com/"+inputstring)
-    # return
+
     try:
-        options = Options()
-        options.add_argument('-headless')
-        # options.add_argument('--ignore-certificate-errors')
-        # options.add_argument("--test-type")
-        # options.add_argument('--disable-gpu')
-        # options.add_argument('disable-infobars')
-        # options.add_argument('--no-sandbox')
-        # options.add_argument('--start-maximized')
-        # options.add_argument('--disable-dev-shm-usage')
         
-        # options.add_argument('--screenshot --window-size=412,732 https://www.google.com/')
-        # options.binary_location = "/app/.apt/usr/bin/google-chrome"
+        # display = Display(visible=0, size=(1280, 720))
+        # display.start()
+        # driver = webdriver.Firefox()
 
-        # binary = FirefoxBinary('path/to/installed firefox binary')
-        driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', firefox_options=options)
-        ##
+        driver = webdriver.PhantomJS()
+        driver.set_window_size(1280, 720)
+
         webFile = public_vars.HOST_PUBLIC_URL + "/static/" + realCurrentDate + ".png"
-
-        # driver.set_window_position(0, 0)
-        # driver.set_window_size(1024, 768)
-        # if url.startswith("/instagram"):
-        #     driver.set_window_size(480, 768)
 
         if not url.startswith("/instagram"):
             print("Screenshot input:", inputstring)
@@ -125,21 +112,27 @@ def ssweb(url):
 
         elif url.startswith("/instagram"):
             print("Instagram Input: https://" + inputstring)
+            driver.set_window_size(480, 720)
+            # display.size(480, 720)
             driver.get('https://' + inputstring)
 
-        # if url.startswith("/instagram"):
-            # driver.find_element_by_class_name('.Szr5J').click()
-            # driver.find_element_by_css_selector('.Szr5J').click()
+            # Close the not logged in dialog USING SPLINTER!
+
+            #driver.find_element_by_class_name('Szr5J').click()
+            #driver.find_element_by_class_name('Ls00D').click()
+            #driver.find_element_by_css_selector('.Szr5J').click()
             
         print("Getting screenshot")
-        driver.get_screenshot_as_file("static/" + realCurrentDate + ".png")
-        driver.save_screenshot("static/ss.png")
+        driver.get_screenshot_as_file("static/rout/" + file_name)
         driver.quit()
+
+        # display.stop()
+        # display.close()
         print("Closing screenshot")
         return str(webFile)
 
     except Exception as e:
-        print("Error :", e, "Retrying screenshot...")
+        print("Error :", e, "<- Error has occured!.")
         # ssweb(tempUrl)
         return None
 
@@ -235,12 +228,12 @@ def plot(persamaan):
             # plt.plot(mx,my, color='red', lw=5)
             print("Creating file....")
 
-            plt.savefig('static/' + realCurrentDate + ".png")
+            plt.savefig('static/rout/plot_' + realCurrentDate + ".png")
 
             print("Create file success")
             print("Generating URL")
 
-            fileurl = public_vars.HOST_PUBLIC_URL + "/static/" + realCurrentDate + ".png"
+            fileurl = public_vars.HOST_PUBLIC_URL + "/static/rout/plot_" + realCurrentDate + ".png"
 
             print("fileurl:", fileurl)
 
@@ -381,6 +374,12 @@ def check_string(msg):
         grouped_msg = remove_absenmsg.split(" ")
 
         date_raw = grouped_msg[0]
+        if date_raw == 'besok':
+            date_raw = time.strftime("%d/%m/%Y")
+            print('EXCEPTION', date_raw)
+            date_raw = int(time.mktime(datetime.datetime.strptime(date_raw, "%d/%m/%Y").timetuple())) + (3600 * 31)
+            print('EXCEPTION', date_raw)
+            date_raw = str(datetime.datetime.utcfromtimestamp(date_raw).strftime('%d/%m/%Y'))
         print("DateRaw:", date_raw)
 
         target_date = time.mktime(datetime.datetime.strptime(date_raw, "%d/%m/%Y").timetuple())
@@ -447,6 +446,12 @@ def absen(msg):
     grouped_msg = remove_absenmsg.split(" ")
 
     date_raw = grouped_msg[0]
+    patokanWaktuBesok = int(time.time()) + 3601
+
+    if date_raw == 'besok':
+        date_raw = datetime.datetime.utcfromtimestamp(patokanWaktuBesok).strftime('%d/%m/%Y')
+        date_raw = int(time.mktime(datetime.datetime.strptime(date_raw, "%d/%m/%Y").timetuple())) + (3600 * 31)
+        date_raw = str(datetime.datetime.utcfromtimestamp(date_raw).strftime('%d/%m/%Y'))
 
     target_date = time.mktime(datetime.datetime.strptime(date_raw, "%d/%m/%Y").timetuple())
     target_date = str(target_date)
@@ -490,12 +495,18 @@ def absen(msg):
     sql_insert_rdate = "INSERT INTO abs_" + target_date_str + " VALUES ('readable-date', " + sqlrdate + ")"
     sql_insert_ket = "INSERT INTO abs_" + target_date_str + " VALUES ('keterangan', " + "'"+keterangan+"'" + ")"
     sql_insert_initiator = "INSERT INTO abs_" + target_date_str + " VALUES ('initiator', " + initiator + ")"
-    
+
     sqlite_query(sql_insert_date_unix)
     sqlite_query(sql_insert_table)
     sqlite_query(sql_insert_rdate)
     sqlite_query(sql_insert_ket)
     sqlite_query(sql_insert_initiator)
+    if chatfeatures.absen_group is not None:
+        sql_insert_groupid = "INSERT INTO abs_" + target_date_str + " VALUES ('group-id', " + "'"+str(chatfeatures.absen_group)+"'" + ")"
+        sqlite_query(sql_insert_groupid)
+    else:
+        sql_insert_groupid = "INSERT INTO abs_" + target_date_str + " VALUES ('group-id', " + "'"+" "+"'" + ")"
+        sqlite_query(sql_insert_groupid)
 
     # Get keterangan
     event_date = str(datetime.datetime.utcfromtimestamp(target_date).strftime('%d/%m/%Y'))
@@ -512,6 +523,10 @@ def absen(msg):
                 MessageAction(
                     label='Hadir',
                     text='#absen '+target_date_str+' Hadir'
+                ),
+                MessageAction(
+                    label='Tidak Hadir',
+                    text='#absen '+ target_date_str +' Tidak_Hadir'
                 ),
                 MessageAction(
                     label='Izin',
@@ -626,6 +641,10 @@ def daftarabsen(msg):
                 MessageAction(
                     label='Hadir',
                     text='#absen '+msg+' Hadir'
+                ),
+                MessageAction(
+                    label='Tidak Hadir',
+                    text='#absen '+ msg +' Tidak_Hadir'
                 ),
                 MessageAction(
                     label='Izin',
@@ -759,6 +778,8 @@ def kehadiran(msg):
 
         if (alasan == "'Hadir'"):
             reply_msg = nama + ' akan hadir dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
+        if (alasan == "'Tidak_Hadir'"):
+            reply_msg = nama + ' tidak akan hadir dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
         if (alasan == "'Izin'"):
             reply_msg = nama + ' izin dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
         if (alasan == "'Sakit'"):
@@ -772,6 +793,8 @@ def kehadiran(msg):
 
         if (alasan == "'Hadir'"):
             reply_msg = nama + ' lebih memilih untuk hadir dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
+        if (alasan == "'Tidak_Hadir'"):
+            reply_msg = nama + ' lebih memilih untuk tidak hadir dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
         if (alasan == "'Izin'"):
             reply_msg = nama + ' meminta izin dalam absensi ' + keterangan + ' yang direncanakan pada: ' + tanggal
         if (alasan == "'Sakit'"):
@@ -784,12 +807,15 @@ def kehadiran(msg):
     reply_msg += '\n\nDaftar kehadiran sementara:'
     attedants_reply_msg = ""
     
-    for i in range(5, len(attedants_list)):
-        indexx = i-3
-        attedants_reply_msg += "\n" + str(attedants_list[i])
+    for i in range(6, len(attedants_list)):
+        indexx = i-5
+        attedants_reply_msg += "\n" +str(indexx)+". "+ str(attedants_list[i])
         print(str(indexx) + ". ", attedants_list[i])
 
     reply_msg += attedants_reply_msg
+    reply_msg = reply_msg.replace('(', '')
+    reply_msg = reply_msg.replace(')', '')
+    reply_msg = reply_msg.replace('\'', '')
 
     return reply_msg
 
@@ -802,12 +828,15 @@ def daftarkehadiran(msg):
     reply_text = 'Daftar kehadiran sementara:\n'
     attedants_reply_msg = ""
     
-    for i in range(5, len(attedants_list)):
-        indexx = i-3
-        attedants_reply_msg += "\n" + str(attedants_list[i])
+    for i in range(6, len(attedants_list)):
+        indexx = i-5
+        attedants_reply_msg += "\n" +str(indexx)+". "+ str(attedants_list[i])
         print(str(indexx) + ". ", attedants_list[i])
 
     reply_text += attedants_reply_msg
+    reply_text = reply_text.replace('(', '')
+    reply_text = reply_text.replace(')', '')
+    reply_text = reply_text.replace('\'', '')
 
     reply_msg = TextSendMessage(text=reply_text)
     return reply_msg
@@ -900,6 +929,9 @@ def isikehadirangrup(msg):
         print(str(indexx) + ". ", attedants_list[i])
 
     reply_text += attedants_reply_msg
+    reply_text = reply_text.replace('(', '')
+    reply_text = reply_text.replace(')', '')
+    reply_text = reply_text.replace('\'', '')
 
     reply_msg = TextSendMessage(text=reply_text)
     return reply_msg

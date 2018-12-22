@@ -16,25 +16,34 @@ import datetime
 import time
 import contextlib
 import public_vars
-
+import linebot.exceptions
+import aryanltk
+import time
+import datetime
+import feature_cv
 
 aimode = False
-helptext = """===== SKAKMAT-AI V1.01 ========
+helptext = """=== SKAKMAT-AI ===
 ||  /help
 ||  /help absen
 ||  /tentang
 ||  /iq (nama orang)
-||  /jadwal *Mapel XI IPS 2
+||  /jadwal
 ||  /chatmode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
 ||  /grafik (ax + by = c)
-||  /screenshot (web url)
+||  /checkuserid (line_api_id) atau /id
+||  /screenshot (www.alamat.web)
 ||  /instagram (username)
+||  /catur atau /catur online link
+||  
+||  BARU! 
+||  /analisisfoto (on/off)
 ||
 ||  Tip: masukkan perintah diawali
 ||  garis miring (/) dan huruf kecil
-=============================="""
+=================="""
 
 absenhelptext = """ Help: Absen
 
@@ -49,12 +58,16 @@ Contoh: /absen 12/04/2019 Ultah arya ke-17
 
 /daftarkehadiran - Memunculkan menu daftar absen yang sedang berjalan beserta data kehadiran dari absen yang dipilih
 
+(/daftarabsen dan /daftarkehadiran berguna jika Anda berubah pikiran mengenai absen)
+
+
 /hapusabsen - Memunculkan menu untuk memilih daftar absen yang akan dihapus
 
 /absengrup - Memunculkan menu untuk mendaftarkan seluruh anggota grup untuk berpartisipasi terhadap absen yang dipilih
+
 (Saat ini perintah /absengrup dan #absengrup sedang dalam perbaikan)
 
-Anda bisa memanggil perintah-perintah tersebut di grup, multichat atau personal chat.
+Anda bisa memanggil perintah-perintah tersebut di grup atau multichat.
 """
 
 
@@ -69,7 +82,82 @@ def imgreply(event, imgurl):
         ImageSendMessage(
             original_content_url=imgurl,
             preview_image_url=imgurl
-        ))
+        ), timeout=None)
+
+def imgpush(target, imgurl):
+    line_bot_api.push_message(
+        target,
+        ImageSendMessage(
+            original_content_url=imgurl,
+            preview_image_url=imgurl
+        ), timeout=None)
+
+def getUserId(event):
+    profile = line_bot_api.get_profile(event.source.user_id)
+    return profile
+    
+# Get Push ID
+def getPushId(event):
+    absen_group = ''
+    try:
+        profile = line_bot_api.get_group_member_profile(event.source.group_id, event.source.user_id)
+        absen_group = str(event.source.group_id)
+    except AttributeError:
+        try:
+            profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+            absen_group = str(event.source.room_id)
+        except AttributeError:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            absen_group = str(event.source.user_id)
+            # texterror = TextSendMessage(text='Untuk dapat menggunakan absen, Anda harus menambahkan skakmat.ai sebagai teman terlebih dahulu.')
+        except linebot.exceptions.LineBotApiError:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            absen_group = str(event.source.user_id)
+    except linebot.exceptions.LineBotApiError:
+        try:
+            profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+            absen_group = str(event.source.room_id)
+        except AttributeError:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            absen_group = str(event.source.user_id)
+        except linebot.exceptions.LineBotApiError:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            absen_group = str(event.source.user_id)
+
+    try:
+        profile = line_bot_api.get_group_member_profile(event.source.group_id, event.source.user_id)
+        absen_group = str(event.source.group_id)
+    except AttributeError:
+        try:
+            profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+            absen_group = str(event.source.room_id)
+        except AttributeError:
+            profile = line_bot_api.get_profile(event.source.user_id)
+            absen_group = str(event.source.user_id)
+
+    return absen_group
+
+def log(event):
+    curtime = time.time() + (3600 * 7)
+    curtime = datetime.datetime.utcfromtimestamp(curtime).strftime("%d/%m/%Y %H:%M")
+
+    user_msg = event.message.text
+    user_id = line_bot_api.get_profile(event.source.user_id)
+    user_group = getPushId(event)
+    user_name = user_id.display_name
+
+    log_msg = '\n[{}] ({}){}:{}: {}'.format(curtime, user_group, user_id.user_id, user_name, user_msg)
+    log_file = open('static/log.txt', 'a')
+    log_file.write(log_msg)
+
+def phrases(event):
+    msg = str(event.message.text)
+
+    if msg.startswith('/') or msg.startswith('#'):
+        return
+
+    p_file = open('static/phrases.txt', 'a')
+    p_file.write('\n' + msg)
 
 # /help /trombosit
 def help(event):
@@ -83,6 +171,143 @@ def help(event):
     return
 
 
+
+imgmode = False
+# image related
+def img(event):
+    global imgmode
+
+    print('\n\n Event MSG \n\n', event.message)
+
+    if(event.message.type == 'image' and imgmode is True):
+        print('\nEvent Dict: \n', event.__dict__)
+        print('\nEvent source: \n', event.source.__dict__)
+        print('\nEvent: \n', event)
+
+        message_content = line_bot_api.get_message_content(event.message.id)
+
+        with open('static/res/temp_cv_img.png', 'wb') as fd:
+            for chunk in message_content.iter_content():
+                fd.write(chunk)
+
+        currentDate = str(datetime.datetime.now().time())
+        datenow = currentDate.replace(":","")
+
+        file_name = 'cv_' + datenow +'.png'
+        file_url = public_vars.HOST_PUBLIC_URL + '/rout/' + file_name
+
+        feature_cv.detect_object(file_name)
+
+        imgreply(event, file_url)
+
+# /chatmode on/off     
+def aimodeon(event):
+    global aimode
+    global imgmode
+
+    msg = event.message.text
+
+    if msg == "/analisisfoto on":
+        imgmode = True
+        textreply(event, 'Mode analisis foto aktif. Silahkan kirim pesan foto untuk dianalisis.')
+    elif msg == "/analisisfoto off":
+        imgmode = False
+        textreply(event, 'Mode analisis foto telah dinonaktifkan.')
+
+    if msg == "/chatmode on":
+        aimode = True
+        textreply(event, "Chatting mode on. Bot akan membalas pesan melalui algoritma Machine Learning.")
+    elif msg == "/chatmode off":
+        aimode = False
+        textreply(event, "Chatting mode off.")
+
+# /push (msg)
+def push(event):
+    msg = str(event.message.text)
+    if msg.startswith('/push '):
+        msg = msg.replace('/push ', '')
+        to = msg.split(' ')
+        msg = ' '.join(to[1:])
+
+        if to[0] == 'kage':
+            to[0] = 'Cff038353c82adb84ee137cc8775f7e2f'
+        elif to[0] == 'checkmate':
+            to[0] = 'C842bd66f34c7fb8352325fe2ed23dfa5'
+
+        line_bot_api.push_message(to[0], TextSendMessage(msg))
+
+# /checkuserid
+def checkuserid(event):
+    msg = str(event.message.text)
+    if (msg.startswith('/checkuserid ')):
+        msg = msg.replace("/checkuserid ", "")
+        
+        # groupid = event.source.group_id
+        userid = msg
+        print(userid)
+
+        profile = line_bot_api.get_profile(userid)
+        message = "LINE_API_ID: \n" + profile.user_id + "\n\nName: \n" + profile.display_name + "\n\nProfile Picture URL: \n" + profile.picture_url + "\n\nStatus Message: \n" + profile.status_message
+        textreply(event, message)
+
+    if (msg == '/id'):
+        profile = line_bot_api.get_profile(event.source.user_id)
+        message = "LINE_API_ID: \n" + profile.user_id + "\n\nName: \n" + profile.display_name + "\n\nProfile Picture URL: \n" + profile.picture_url + "\n\nStatus Message: \n" + profile.status_message
+        textreply(event, message)
+
+# /chess atau /catur
+def chess(event):
+    msg = str(event.message.text)
+
+    if msg == "/catur" or msg == "/chess":
+        print('Chess command triggered')
+        url = public_vars.HOST_FRONTEND_URL + '/chessai'
+        chess_template = TemplateSendMessage(
+            alt_text='Pesan Catur',
+            template=ButtonsTemplate(
+                title='Bermain Catur',
+                text='Silahkan pilih mode permainan dibawah.',
+                actions=[
+                    URIAction(
+                        label='VS Bot (Offline)',
+                        uri=url
+                    ),
+                    MessageAction(
+                        label='Online Multiplayer',
+                        text='/catur online'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, chess_template)
+        return
+    
+    if msg.startswith("/catur online"):
+        id_gen = '123456789'
+        id = ''
+        for i in range(5):
+            id += id_gen[randint(0,8)]
+        url_id = 'Klik LINK (biru) dibawah untuk mulai bermain: \n' + public_vars.HOST_FRONTEND_URL + ':3000/room/' + id
+        url = public_vars.HOST_FRONTEND_URL + ':3000/room/' + id
+        chess_template = TemplateSendMessage(
+            alt_text='Pesan Catur',
+            template=ButtonsTemplate(
+                title='Ruang Catur: ' + id,
+                text='Telah dibuat ruang pertandingan catur. Silahkan bergabung.',
+                actions=[
+                    URIAction(
+                        label='Gabung',
+                        text='Saya ingin bergabung catur: ' + id,
+                        uri=url
+                    )
+                ]
+            )
+        )
+        if 'url' in msg or 'link' in msg:
+            textreply(event, url_id)
+            return
+        line_bot_api.reply_message(event.reply_token, chess_template)
+
 # /tentang
 def creator(event):
     msg = event.message.text
@@ -94,18 +319,6 @@ def creator(event):
         imgreply(event, public_vars.HOST_PUBLIC_URL + '/static/jadwal.jpg')
     return
 
-# /chatmode on/off     
-def aimodeon(event):
-    global aimode
-    msg = event.message.text
-    if msg == "/chatmode on":
-        
-        aimode = True
-        textreply(event, "Chatting mode on")
-    elif msg == "/chatmode off":
-        
-        aimode = False
-        textreply(event, "Chatting mode off")
 
 def reply(msgserv):
     return msgserv
@@ -114,7 +327,7 @@ def aireply(event):
     msg = event.message.text
     global aimode
     if aimode:
-        airesponse = feature_chatai.chat(msg)
+        airesponse = aryanltk.chat(msg)
         textreply(event, str(airesponse))
     
 # /love
@@ -132,7 +345,7 @@ def love(event):
         msgnolow = msg.replace('/iq ', '')
         msg = msgnolow.lower()
 
-        iq = randint(81, 121)
+        iq = randint(85, 126)
 
         if('faisal' in msg):
             iq = 129
@@ -177,19 +390,23 @@ def webss(event):
     msg = str(event.message.text)
 
     if msg.startswith("/screenshot") or msg.startswith("/instagram"):
-        wFile = feature_utils.ssweb(msg)
-        if wFile is not None:
-         
-            print("IMG File is:", wFile)
+        currentDate = str(datetime.datetime.now().time())
+        datenow = currentDate.replace(":","")
 
-            time.sleep(2)
-            
-            imgreply(event, wFile)
-            
-        else:
-            textreply(event, "Screenshot gagal, cobalah untuk screenshot ulang.")
+        # temp_f = open('static/rout/'+datenow+'.png', 'w+')
+        # temp_f.write('#')
 
-# /grafik
+        file_name = 'ss_' + datenow +'.png'
+        file_url = public_vars.HOST_PUBLIC_URL + '/rout/' + file_name
+
+        if feature_utils.ssweb(msg, file_name) is None:
+            textreply(event, 'Error saat melakukan screenshot. Silahkan coba lagi.')
+            return
+
+        imgreply(event, file_url)
+        print(file_name, file_url)
+
+# /grafik 
 bukanUjian = True
 def grafik(event):
     global bukanUjian
@@ -233,39 +450,58 @@ def grafik(event):
         # )
         # line_bot_api.reply_message(event.reply_token, carousel_template_message)
 
-# /checkuserid
-def checkuserid(event):
-    msg = str(event.message.text)
-    if (msg.startswith('/checkuserid')):
-        msg_clear = msg.replace("/checkuserid", "")
-        msg_final = msg_clear.replace(" ", "")
-        
-        # groupid = event.source.group_id
-        userid = msg_final
-        print(userid)
-
-        profile = line_bot_api.get_profile(userid)
-        message = "UserID: " + profile.user_id + "\nName: " + profile.display_name + "\nPic URL: " + profile.picture_url + "\n Status: " + profile.status_message
-        textreply(event, message)
-
 
 absen_name = ""
+absen_group = None
 def absen(event):
 
     msg = str(event.message.text)
-
+    global absen_name
 
     if (msg.startswith('/absen ')):
 
+        global absen_group
+        absen_group = None
+
         try:
             profile = line_bot_api.get_group_member_profile(event.source.group_id, event.source.user_id)
+            absen_group = str(event.source.group_id)
         except AttributeError:
             try:
                 profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+                absen_group = str(event.source.room_id)
             except AttributeError:
                 profile = line_bot_api.get_profile(event.source.user_id)
+                absen_group = str(event.source.user_id)
+                # texterror = TextSendMessage(text='Untuk dapat menggunakan absen, Anda harus menambahkan skakmat.ai sebagai teman terlebih dahulu.')
+            except linebot.exceptions.LineBotApiError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+                absen_group = str(event.source.user_id)
+        except linebot.exceptions.LineBotApiError:
+            try:
+                profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+                absen_group = str(event.source.room_id)
+            except AttributeError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+                absen_group = str(event.source.user_id)
+            except linebot.exceptions.LineBotApiError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+                absen_group = str(event.source.user_id)
 
-        global absen_name
+        try:
+            profile = line_bot_api.get_group_member_profile(event.source.group_id, event.source.user_id)
+            absen_group = str(event.source.group_id)
+        except AttributeError:
+            try:
+                profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+                absen_group = str(event.source.room_id)
+            except AttributeError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+                # absen_group = str(event.source.user_id)
+
+        if event.source.user_id is None:
+            textreply(event, 'Mohon tambah \'skakmat.ai\' sebagai teman terlebih dahulu. \nAbsen tidak dapat bekerja di LINE Lite. ')
+            return
         absen_name = str(profile.display_name)
 
         absen_msg = feature_utils.check_string(msg)
@@ -285,6 +521,7 @@ def absen(event):
         elif (absen_msg == 'pass'):
             absen_reply = feature_utils.absen(msg)
             line_bot_api.reply_message(event.reply_token, absen_reply)
+            absen_group = None
         else:
             textreply(event, 'Telah terjadi kesalahan. Silahkan coba lagi dengan format yang disesuaikan. \n\nContoh: /absen 17/08/2019 Upacara')
     
@@ -293,7 +530,7 @@ def absen(event):
 
         jumlah_absen = feature_utils.sqlite_count_table()
 
-        if (jumlah_absen == 0):
+        if (jumlah_absen <= 0):
             textreply(event, 'Kesalahan: Jadwal absensi kosong. Tidak ada yang bisa dihapus.')
         else:
             hapus_absen_reply = feature_utils.delete_absen()
@@ -304,7 +541,7 @@ def absen(event):
 
         jumlah_absen = feature_utils.sqlite_count_table()
 
-        if (jumlah_absen == 0):
+        if (jumlah_absen <= 0):
             textreply(event, 'Kesalahan: Jadwal absensi kosong. Tidak ada yang bisa dilihat.')
         else:
             daftar_absen_reply = feature_utils.daftar_absen()
@@ -314,7 +551,7 @@ def absen(event):
 
         jumlah_absen = feature_utils.sqlite_count_table()
 
-        if (jumlah_absen == 0):
+        if (jumlah_absen <= 0):
             textreply(event, 'Kesalahan: Jadwal absensi kosong. Tidak ada yang bisa dilihat.')
         else:
             daftar_absen_reply = feature_utils.daftar_absen_carousel()
@@ -323,7 +560,9 @@ def absen(event):
     if (msg.startswith('/absengrup')):
         jumlah_absen = feature_utils.sqlite_count_table()
 
-        if (jumlah_absen == 0):
+        return
+
+        if (jumlah_absen <= 0):
             textreply(event, 'Kesalahan: Jadwal absensi kosong. Tidak ada yang bisa dilihat.')
         else:
             daftar_absen_grup_reply = feature_utils.absengrup()
@@ -348,8 +587,20 @@ def absen(event):
                 profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
             except AttributeError:
                 profile = line_bot_api.get_profile(event.source.user_id)
+                # texterror = TextSendMessage(text='Untuk dapat menggunakan absen, Anda harus menambahkan skakmat.ai sebagai teman terlebih dahulu.')
+            except linebot.exceptions.LineBotApiError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+        except linebot.exceptions.LineBotApiError:
+            try:
+                profile = line_bot_api.get_room_member_profile(event.source.room_id, event.source.user_id)
+            except AttributeError:
+                profile = line_bot_api.get_profile(event.source.user_id)
+            except linebot.exceptions.LineBotApiError:
+                profile = line_bot_api.get_profile(event.source.user_id)
 
-        global absen_name
+        if event.source.user_id is None:
+            textreply(event, 'Mohon tambah \'skakmat.ai\' sebagai teman terlebih dahulu. \nAbsen tidak dapat bekerja di LINE Lite. ')
+            return
         absen_name = str(profile.display_name)
 
         checkmsg = msg.replace('#absen ', '')
@@ -377,6 +628,8 @@ def absen(event):
         checkmsg = msg.replace('#absengrup ', '')
         checkmsg = 'abs_'+checkmsg
 
+        return
+
         if not(feature_utils.sqlite_check_table(checkmsg)):
             textreply(event, 'Kesalahan: Tidak ada daftar absen dengan id tersebut.')
         else:
@@ -398,6 +651,7 @@ def absen(event):
             absen_msg = feature_utils.kehadirangrup(msg)
             absen_grup_kehadiran = feature_utils.isikehadirangrup(msg)
             line_bot_api.reply_message(event.reply_token, [absen_msg, absen_grup_kehadiran])
+        
 
         
     # line_bot_api.push_message("U748bf57240b557199324942eb432f2b4", TextSendMessage(text='Hello World!'))

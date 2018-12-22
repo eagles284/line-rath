@@ -465,3 +465,111 @@ JavaScript error: https://cdn4.uzone.id/assets/js/jquery.3.1.0.js, line 4: TypeE
 1534328085072	Marionette	INFO	New connections will no longer be accepted
 [Child 20958] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
 [Child 20958] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1534785247021	geckodriver	INFO	Listening on 127.0.0.1:35561
+1534785248020	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.oFws7rsSn2UN
+1534785248023	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1534785248029	geckodriver::marionette	INFO	Connecting to Marionette on localhost:44449
+1534785253032	Marionette	INFO	Listening on port 44449
+1534785254240	Marionette	WARN	TLS certificate errors will be ignored for this session
+1534785266438	Marionette	INFO	New connections will no longer be accepted
+[Child 16369] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 322
+[Child 16369] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 16369] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+1536935032713	geckodriver	INFO	Listening on 127.0.0.1:35533
+1536935033616	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.vTTPB6TNa5FD
+1536935033624	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-headless"]
+1536935033638	geckodriver::marionette	INFO	Connecting to Marionette on localhost:44799
+1536935043422	Marionette	INFO	Listening on port 44799
+1536935046064	Marionette	WARN	TLS certificate errors will be ignored for this session
+1536935061424	Marionette	INFO	New connections will no longer be accepted
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+[Child 3938] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 3938] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0xE00003,name=PTexture::Msg_Destroy) Channel error: cannot send/recv
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x3E0003,name=PCompositable::Msg_Destroy) Channel error: cannot send/recv
+
+1536941791747	geckodriver	INFO	Listening on 127.0.0.1:44903
+1536941792618	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.g21VPCrJhRCp
+1536941792622	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args []
+1536941792636	geckodriver::marionette	INFO	Connecting to Marionette on localhost:43151
+1536941799644	Marionette	INFO	Listening on port 43151
+1536941801298	Marionette	WARN	TLS certificate errors will be ignored for this session
+1536941855185	geckodriver	INFO	Listening on 127.0.0.1:54205
+1536941856174	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.sbi3Ec5bGK4K
+1536941856182	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args []
+1536941856196	geckodriver::marionette	INFO	Connecting to Marionette on localhost:42789
+1536941863410	Marionette	INFO	Listening on port 42789
+1536941864682	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.instagram.com/static/bundles/base/ConsumerCommons.js/c9bae03d3496.js, line 1: unreachable code after return statement
+JavaScript warning: https://www.instagram.com/static/bundles/base/ConsumerCommons.js/c9bae03d3496.js, line 1: unreachable code after return statement
+1536941889448	Marionette	INFO	New connections will no longer be accepted
+[Child 6935] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+[Child 6935] ###!!! ABORT: Aborting on channel error.: file /build/firefox-esr-YKrXxr/firefox-esr-52.9.0esr/ipc/glue/MessageChannel.cpp, line 2152
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1536942869032	geckodriver	INFO	Listening on 127.0.0.1:37157
+1536942870014	mozprofile::profile	INFO	Using profile path /tmp/rust_mozprofile.4M3AsTofgB5m
+1536942870022	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args []
+1536942870035	geckodriver::marionette	INFO	Connecting to Marionette on localhost:38369
+1536942876778	Marionette	INFO	Listening on port 38369
+1536942878672	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
