@@ -23,7 +23,7 @@ import datetime
 import feature_cv
 
 aimode = False
-helptext = """=== SKAKMAT-AI ===
+helptext = """~~~ WELCOME TO RATH ~~~
 ||  /help
 ||  /help absen
 ||  /tentang
@@ -32,18 +32,19 @@ helptext = """=== SKAKMAT-AI ===
 ||  /chatmode (on/off)
 ||  /love (orang1, orang2)
 ||  /wikipedia (search...)
-||  /grafik (ax + by = c)
 ||  /checkuserid (line_api_id) atau /id
 ||  /screenshot (www.alamat.web)
 ||  /instagram (username)
-||  /catur atau /catur online link
+||  /catur atau /catur link
 ||  
 ||  BARU! 
 ||  /analisisfoto (on/off)
+||  /pc screenshot
+||  /pc webcam
 ||
 ||  Tip: masukkan perintah diawali
 ||  garis miring (/) dan huruf kecil
-=================="""
+~~~~~~~~~~~~~~~~~~~~"""
 
 absenhelptext = """ Help: Absen
 

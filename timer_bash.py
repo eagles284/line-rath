@@ -1,7 +1,5 @@
 import time
-import sched
 import sqlite3
-import asyncio
 import feature_utils
 import chatfeatures
 import threading
@@ -12,6 +10,9 @@ from linebot.models import (
     LocationSendMessage, LocationMessage, PostbackAction, URIAction, MessageAction,
     ImageSendMessage, ButtonsTemplate
 )
+import requests
+import json
+import public_vars
 
 def getCurrentIndoTime():
     indtime = time.time()
@@ -41,34 +42,30 @@ def absenList():
         
         return absen_list
 
-exitFlag = 0
-class myThread (threading.Thread):
-    def __init__(self, threadID, name):
-        threading.Thread.__init__(self)
-        self.threadID = threadID
-        self.name = name
-        
-    def run(self):
-        scheduleAbsen(self.name)
-
 def schedule():
 
-    i = 0
-    thread = []
-    for absen in absenList():
-        # if absen not in active_absens:
-        # print('Absen', absen, 'isnt exist, adding to thread')
-        # active_absens.append(absen)
-        # thread.append(myThread(i, absen))
-        # thread[i].start()
-        # print('thread', i)
-        scheduleAbsen(absen)
-        i = i + 1
-        
+    try:
+        r = requests.post(public_vars.HOST_API_URL + '/api.php')
+        j = json.loads(r.text)
+        queues = j['queues']
+
+        for q in queues:
+            if str(q['id']) == '1':
+                requests.post(public_vars.HOST_API_URL + '/sender.php',
+                data={'confirm':1})
+                
+                msg = '''Laptop turned on at {}\n\nLat Long: {} (2 km accuracy)\nWiFi: {}'''.format(
+                    q['time'],
+                    '%s, %s' % (str(q['location']['lat']), str(q['location']['long'])),
+                    q['wifi']['current_ssid'])
+
+                #  line api stuff
+                sendPushMessage('U748bf57240b557199324942eb432f2b4', TextSendMessage(text=msg))
+                break
+    except Exception as e:
+        print('JSON Error:', e)
 
 def scheduleAbsen(absen_id):
-
-
     print('Scheduling absen notifier for', absen_id)
     absen_data = feature_utils.sqlite_select_all('SELECT val FROM '+absen_id)
 
@@ -76,7 +73,6 @@ def scheduleAbsen(absen_id):
     for data in absen_data:
         data_absen.append(data[0])
     print(data_absen)
-
 
     currentTime = getCurrentIndoTime()
     targetTime = int(data_absen[0])
@@ -163,17 +159,7 @@ def scheduleAbsen(absen_id):
         # Delete the absen from DB
         feature_utils.sqlite_query('DROP TABLE IF EXISTS abs_'+ str(data_absen[1]))
 
-# time.sleep(10)
-# try:
 schedule()
 exit()
-# except Exception as e:
-#     print('there is no data to schedule or runtime error.')
-#     print(e)
-
-
-
-# sendPushMessage('U748bf57240b557199324942eb432f2b4', chatfeatures.TextSendMessage(text='Woi, dikirim darii 2nd file!!'))
-
 
 

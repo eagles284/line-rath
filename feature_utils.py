@@ -22,9 +22,10 @@ from linebot.models import (
     LocationSendMessage, LocationMessage, PostbackAction, URIAction, MessageAction,
     ImageSendMessage, ButtonsTemplate
 )
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot as plt
+# import matplotlib
+# from matplotlib import pyplot as plt
+# matplotlib.use('agg')
+
 
 # message_content = line_bot_api.get_message_content(message_id)
 
@@ -84,7 +85,6 @@ def ssweb(url, file_name):
 
     inputstring = rawinputstring.replace(" ", "")
 
-
     print(inputstring)
 
     try:
@@ -141,114 +141,114 @@ def ssweb(url, file_name):
 # ================
 # Grafik Persamaan
 # ================
-def plot(persamaan):
+# def plot(persamaan):
 
-    global currentDate, realCurrentDate
-    currentDate = str(datetime.datetime.now().time())
-    datenow = currentDate.replace(":","")
-    realCurrentDate = datenow
+#     global currentDate, realCurrentDate
+#     currentDate = str(datetime.datetime.now().time())
+#     datenow = currentDate.replace(":","")
+#     realCurrentDate = datenow
 
-    rawinputstring = persamaan.replace(" ", "")
-    inputstring = rawinputstring.replace("/grafik", "")
-    print(inputstring)
+#     rawinputstring = persamaan.replace(" ", "")
+#     inputstring = rawinputstring.replace("/grafik", "")
+#     print(inputstring)
 
-    if "x" in inputstring and "y" in inputstring and "=" in inputstring and "/" not in inputstring and "*" not in inputstring:
+#     if "x" in inputstring and "y" in inputstring and "=" in inputstring and "/" not in inputstring and "*" not in inputstring:
         
-        try:
-            plt.clf()
-            removex = inputstring.replace(" ", "").split("x")
-            removey = removex[1].split("y")
-            removee = removey[1].split("=")
+#         try:
+#             plt.clf()
+#             removex = inputstring.replace(" ", "").split("x")
+#             removey = removex[1].split("y")
+#             removee = removey[1].split("=")
 
-            if removex[0] == '' or removex[0] == '-':
-                xraw = int(1)
-                if removex[0] == '-':
-                    xraw = int(-1)
-            else:
-                xraw = int(removex[0])
+#             if removex[0] == '' or removex[0] == '-':
+#                 xraw = int(1)
+#                 if removex[0] == '-':
+#                     xraw = int(-1)
+#             else:
+#                 xraw = int(removex[0])
             
-            if removey[0] == '+' or removey[0] == '-' or removey[0] == '':
-                yraw = int(1)
-                if removey[0] == '-':
-                    yraw = int(-1)
-            else:
-                yraw = int(removey[0])
+#             if removey[0] == '+' or removey[0] == '-' or removey[0] == '':
+#                 yraw = int(1)
+#                 if removey[0] == '-':
+#                     yraw = int(-1)
+#             else:
+#                 yraw = int(removey[0])
 
-            e = int(removee[1])
+#             e = int(removee[1])
 
-            x = e/xraw
-            y = e/yraw
+#             x = e/xraw
+#             y = e/yraw
 
-            stringx = str(x)
-            stringy = str(y)
+#             stringx = str(x)
+#             stringy = str(y)
 
-            if '.0' in stringx:
-                stringx = stringx.replace(".0","")
-            if '.0' in stringy:
-                stringy = stringy.replace(".0","")
+#             if '.0' in stringx:
+#                 stringx = stringx.replace(".0","")
+#             if '.0' in stringy:
+#                 stringy = stringy.replace(".0","")
 
-            print("x:",xraw,"y:",yraw,"e:",e)
-            print("x:",x,"y:",y,"e:",e)
-            print("label X:",stringx,"label Y:",stringy)
+#             print("x:",xraw,"y:",yraw,"e:",e)
+#             print("x:",x,"y:",y,"e:",e)
+#             print("label X:",stringx,"label Y:",stringy)
 
-            # Create a dataframe with an x column containing values from -10 to 10
-            # df = pd.DataFrame({'x': range(-10, 11)})
+#             # Create a dataframe with an x column containing values from -10 to 10
+#             # df = pd.DataFrame({'x': range(-10, 11)})
 
-            # Define slope and y-intercept
-            # m = 1.5
-            # yInt = -2
+#             # Define slope and y-intercept
+#             # m = 1.5
+#             # yInt = -2
 
-            # Add a y column by applying the slope-intercept equation to x
-            # df['y'] = m*df['x'] + yInt
-            # print(df)
+#             # Add a y column by applying the slope-intercept equation to x
+#             # df['y'] = m*df['x'] + yInt
+#             # print(df)
 
-            # Plot the line
-            print("Going to plot")
-            xi = [0, x]
-            yi = [y, 0]
+#             # Plot the line
+#             print("Going to plot")
+#             xi = [0, x]
+#             yi = [y, 0]
 
-            plt.plot(xi, yi, color="red")
-            # plt.xlabel('x')
-            # plt.ylabel('y')
-            plt.axhline()
-            plt.axvline()    
-            plt.grid()
-            print("Going to plot...2")
-            # strx = str(x)
-            # stry = str(y)
+#             plt.plot(xi, yi, color="red")
+#             # plt.xlabel('x')
+#             # plt.ylabel('y')
+#             plt.axhline()
+#             plt.axvline()    
+#             plt.grid()
+#             print("Going to plot...2")
+#             # strx = str(x)
+#             # stry = str(y)
 
-            # label the y and x - intercept
-            plt.axvspan(x, y, facecolor='g', alpha=0)
-            plt.annotate(stringx[0:15],(x,0), color='green')
-            plt.annotate(stringy[0:15],(0,y), color='green')
-            print("PLOT SUCCESS")
-            # plot the slope from the y-intercept for 1x
-            # mx = [0, 1]
-            # my = [yInt, yInt + m]
-            # plt.plot(mx,my, color='red', lw=5)
-            print("Creating file....")
+#             # label the y and x - intercept
+#             plt.axvspan(x, y, facecolor='g', alpha=0)
+#             plt.annotate(stringx[0:15],(x,0), color='green')
+#             plt.annotate(stringy[0:15],(0,y), color='green')
+#             print("PLOT SUCCESS")
+#             # plot the slope from the y-intercept for 1x
+#             # mx = [0, 1]
+#             # my = [yInt, yInt + m]
+#             # plt.plot(mx,my, color='red', lw=5)
+#             print("Creating file....")
 
-            plt.savefig('static/rout/plot_' + realCurrentDate + ".png")
+#             plt.savefig('static/rout/plot_' + realCurrentDate + ".png")
 
-            print("Create file success")
-            print("Generating URL")
+#             print("Create file success")
+#             print("Generating URL")
 
-            fileurl = public_vars.HOST_PUBLIC_URL + "/static/rout/plot_" + realCurrentDate + ".png"
+#             fileurl = public_vars.HOST_PUBLIC_URL + "/static/rout/plot_" + realCurrentDate + ".png"
 
-            print("fileurl:", fileurl)
+#             print("fileurl:", fileurl)
 
-            return str(fileurl)
+#             return str(fileurl)
 
-            # plt.show()  # REMOVE THIS ON EXECUTE!!!
+#             # plt.show()  # REMOVE THIS ON EXECUTE!!!
             
-        except IndexError:
-            return
-    else:
-            print("Format error")
-            return
+#         except IndexError:
+#             return
+#     else:
+#             print("Format error")
+#             return
 
-# plot("-3x+3y=10")
-# plot("5x+4y=20")
+# # plot("-3x+3y=10")
+# # plot("5x+4y=20")
 
 def hari(date):
     english_day = datetime.datetime.strptime(date, '%d/%m/%Y').strftime('%A')
@@ -485,7 +485,7 @@ def absen(msg):
 
     # Create table
     create_abs_table = '''CREATE TABLE IF NOT EXISTS abs_''' + target_date_str + '''
-             (type text, val text)'''
+            (type text, val text)'''
 
     sqlite_query(create_abs_table)
     
